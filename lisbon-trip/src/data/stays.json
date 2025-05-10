@@ -1,0 +1,11 @@
+[
+    {
+        "name": "Two-bedroom flat next to Av. da Liberdade",
+        "address": "Av. da Liberdade area, Lisbon, Portugal",
+        "checkIn": "2025-05-26",
+        "checkOut": "2025-06-02",
+        "totalCost": 3599,
+        "currency": "BGN",
+        "splitNeeded": true
+    }
+]

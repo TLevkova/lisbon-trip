@@ -1,0 +1,88 @@
+[
+    {
+        "id": "oceanario",
+        "title": "Oceanário de Lisboa",
+        "heroImg": "oceanario.jpg",
+        "description": "Europe’s largest indoor aquarium, 450+ species.",
+        "price": "€25 adult",
+        "gmapsUrl": "https://goo.gl/maps/VSa3JV...",
+        "rating": 4.7
+    },
+    {
+        "id": "castelo",
+        "title": "Castelo de São Jorge",
+        "heroImg": "castelo.jpg",
+        "description": "11th-century hill-top fortress with killer views.",
+        "price": "€15",
+        "gmapsUrl": "https://goo.gl/maps/6eWWc...",
+        "rating": 4.6
+    },
+    {
+        "id": "belem-tower",
+        "title": "Torre de Belém",
+        "heroImg": "belem.jpg",
+        "description": "Iconic 16th-century river fort & UNESCO site.",
+        "price": "€8",
+        "gmapsUrl": "https://goo.gl/maps/YnA...",
+        "rating": 4.6
+    },
+    {
+        "id": "jeronimos",
+        "title": "Jerónimos Monastery",
+        "heroImg": "jeronimos.jpg",
+        "description": "Manueline-style masterpiece, Vasco da Gama’s tomb.",
+        "price": "€12",
+        "gmapsUrl": "https://goo.gl/maps/Go3...",
+        "rating": 4.8
+    },
+    {
+        "id": "alfama",
+        "title": "Alfama District & Tram 28",
+        "heroImg": "alfama.jpg",
+        "description": "Labyrinthine lanes + retro yellow tram ride.",
+        "gmapsUrl": "https://goo.gl/maps/q1Y...",
+        "rating": 4.7
+    },
+    {
+        "id": "lx-factory",
+        "title": "LX Factory",
+        "heroImg": "lxfactory.jpg",
+        "description": "19th-century industrial complex turned hip hub.",
+        "gmapsUrl": "https://goo.gl/maps/F4b...",
+        "rating": 4.5
+    },
+    {
+        "id": "time-out",
+        "title": "Time Out Market Lisboa",
+        "heroImg": "timeout.jpg",
+        "description": "50-stall foodie heaven inside Mercado da Ribeira.",
+        "gmapsUrl": "https://goo.gl/maps/W1n...",
+        "rating": 4.6
+    },
+    {
+        "id": "praca",
+        "title": "Praça do Comércio",
+        "heroImg": "praca.jpg",
+        "description": "Grand riverfront square—gateway to the city.",
+        "gmapsUrl": "https://goo.gl/maps/tE3...",
+        "rating": 4.7
+    },
+    {
+        "id": "santa-justa",
+        "title": "Santa Justa Lift",
+        "heroImg": "lift.jpg",
+        "description": "Neo-gothic elevator with Eiffel-esque flair.",
+        "price": "€5.30",
+        "gmapsUrl": "https://goo.gl/maps/KZH...",
+        "rating": 4.4
+    },
+    {
+        "id": "maat",
+        "title": "MAAT Museum",
+        "heroImg": "maat.jpg",
+        "description": "Undulating riverside museum of art & tech.",
+        "price": "€9",
+        "gmapsUrl": "https://goo.gl/maps/qtL...",
+        "rating": 4.5
+    }
+]

@@ -1,0 +1,76 @@
+{
+  "flights": [
+    {
+      "id": "FL001",
+      "airline": "TAP Portugal",
+      "airlineCode": "TP",
+      "departure": {
+        "airport": "LIS",
+        "time": "2024-03-15T10:30:00",
+        "terminal": "1"
+      },
+      "arrival": {
+        "airport": "LHR",
+        "time": "2024-03-15T12:45:00",
+        "terminal": "5"
+      },
+      "duration": "2h 15m",
+      "price": 129.99,
+      "type": "outbound"
+    },
+    {
+      "id": "FL002",
+      "airline": "British Airways",
+      "airlineCode": "BA",
+      "departure": {
+        "airport": "LHR",
+        "time": "2024-03-22T14:20:00",
+        "terminal": "5"
+      },
+      "arrival": {
+        "airport": "LIS",
+        "time": "2024-03-22T16:35:00",
+        "terminal": "1"
+      },
+      "duration": "2h 15m",
+      "price": 145.50,
+      "type": "return"
+    },
+    {
+      "id": "FL003",
+      "airline": "Ryanair",
+      "airlineCode": "FR",
+      "departure": {
+        "airport": "LIS",
+        "time": "2024-03-15T08:15:00",
+        "terminal": "2"
+      },
+      "arrival": {
+        "airport": "STN",
+        "time": "2024-03-15T10:30:00",
+        "terminal": "1"
+      },
+      "duration": "2h 15m",
+      "price": 89.99,
+      "type": "outbound"
+    },
+    {
+      "id": "FL004",
+      "airline": "EasyJet",
+      "airlineCode": "U2",
+      "departure": {
+        "airport": "LGW",
+        "time": "2024-03-22T16:45:00",
+        "terminal": "N"
+      },
+      "arrival": {
+        "airport": "LIS",
+        "time": "2024-03-22T19:00:00",
+        "terminal": "2"
+      },
+      "duration": "2h 15m",
+      "price": 95.00,
+      "type": "return"
+    }
+  ]
+} 
