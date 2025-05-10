@@ -1,0 +1,26 @@
+[
+    {
+        "id": "lx-factory",
+        "title": "LX Factory",
+        "heroImg": "lxfactory.jpg",
+        "description": "19th-century industrial complex turned hip hub.",
+        "gmapsUrl": "https://goo.gl/maps/F4b...",
+        "rating": 4.5,
+        "location": {
+            "lat": 38.7037,
+            "lng": -9.1789
+        }
+    },
+    {
+        "id": "time-out",
+        "title": "Time Out Market Lisboa",
+        "heroImg": "timeout.jpg",
+        "description": "50-stall foodie heaven inside Mercado da Ribeira.",
+        "gmapsUrl": "https://goo.gl/maps/W1n...",
+        "rating": 4.6,
+        "location": {
+            "lat": 38.7070,
+            "lng": -9.1487
+        }
+    }
+]

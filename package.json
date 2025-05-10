@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "leaflet": "^1.9.4",
-    "localforage": "^1.10.0"
-  }
-}

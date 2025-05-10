@@ -1,6 +1,5 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
-import type { VitePWAOptions } from 'vite-plugin-pwa';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
@@ -9,7 +8,13 @@ export default defineConfig({
 		VitePWA({
 			registerType: 'autoUpdate',
 			workbox: {
-				globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
+				maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+				globPatterns: [
+					'**/*.{js,css,html,ico,png,svg,webp,avif}',
+					'/data/*.json',
+					'/assets/images/**/*',
+
+				],
 				additionalManifestEntries: [
 					{ url: '/data/**/*', revision: '1' },
 					{ url: '/assets/**/*', revision: '1' },
@@ -52,5 +57,12 @@ export default defineConfig({
 				]
 			}
 		})
-	]
+	],
+	server: {
+		hmr: {
+			protocol: 'ws',
+			host: 'localhost',
+			port: 5173
+		}
+	}
 });

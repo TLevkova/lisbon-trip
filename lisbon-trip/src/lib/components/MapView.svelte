@@ -1,112 +1,86 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import { goto } from '$app/navigation';
-  import type { ExploreItem } from '$lib/types/explore';
-  import L from 'leaflet';
-  import 'leaflet/dist/leaflet.css';
+	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
+	import type { ExploreLocation } from '$lib/data/explore';
+	import { goto } from '$app/navigation';
 
-  export let items: ExploreItem[] = [];
-  export let mapboxToken: string;
+	export let locations: ExploreLocation[] = [];
 
-  let mapContainer: HTMLDivElement;
-  let map: L.Map;
-  let markers: L.Marker[] = [];
+	let map: any;
 
-  // Custom dark style from Mapbox
-  const mapboxStyle = 'mapbox://styles/mapbox/dark-v11';
-  const tileUrl = `https://api.mapbox.com/v4/mapbox.dark-v11/{z}/{x}/{y}@2x.png?access_token=${mapboxToken}`;
+	onMount(async () => {
+		if (!browser) return;
+		
+		// Dynamically import Leaflet and its CSS only in the browser
+		const L = (await import('leaflet')).default;
+		await import('leaflet/dist/leaflet.css');
+		
+		// create map
+		map = L.map('explore-map', {
+			scrollWheelZoom: false,
+			attributionControl: false
+		}).setView([38.7167, -9.1333], 12);
 
-  onMount(() => {
-    // Initialize map
-    map = L.map(mapContainer, {
-      center: [38.7169, -9.1399],
-      zoom: 13,
-      zoomControl: false,
-      attributionControl: false
-    });
+		/* LIGHT tile layer (OpenStreetMap) — replaces previous dark layer */
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 19,
+			attribution:
+				'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
 
-    // Add tile layer
-    L.tileLayer(tileUrl, {
-      maxZoom: 19,
-      tileSize: 512,
-      zoomOffset: -1,
-      attribution: '© Mapbox'
-    }).addTo(map);
+		// markers
+		locations.forEach((loc) => {
+			const marker = L.marker([loc.coordinates.lat, loc.coordinates.lng])
+				.addTo(map)
+				.bindPopup(`
+					<div class="p-2">
+						<h3 class="mb-2 font-semibold text-gray-900">${loc.title}</h3>
+						<p class="mb-3 text-sm text-gray-600">${loc.description.substring(0, 150)}...</p>
+						<button class="w-full rounded-lg bg-blue-600 px-3 py-1.5 text-sm text-white transition-colors hover:bg-blue-700">
+							View Details
+						</button>
+					</div>
+				`);
 
-    // Add zoom control
-    L.control.zoom({
-      position: 'bottomright'
-    }).addTo(map);
-
-    // Create markers for each item
-    markers = items.map(item => {
-      const marker = L.marker([item.location.lat, item.location.lng])
-        .bindPopup(`
-          <div class="p-2">
-            <h3 class="font-semibold text-gray-900">${item.title}</h3>
-            <p class="text-sm text-gray-600">${item.category}</p>
-          </div>
-        `);
-
-      marker.on('click', () => {
-        goto(`/explore/${item.slug}`);
-      });
-
-      return marker;
-    });
-
-    // Add markers to map
-    const markerGroup = L.layerGroup(markers).addTo(map);
-
-    // Fit bounds to show all markers
-    if (markers.length > 0) {
-      const bounds = L.latLngBounds(markers.map(m => m.getLatLng()));
-      map.fitBounds(bounds, { padding: [50, 50] });
-    }
-
-    return () => {
-      map.remove();
-    };
-  });
+			// Make popup clickable
+			marker.on('popupopen', () => {
+				const popup = marker.getPopup();
+				if (!popup) return;
+				
+				const popupElement = popup.getElement();
+				if (popupElement) {
+					popupElement.style.cursor = 'pointer';
+					popupElement.addEventListener('click', () => {
+						goto(`/explore/${loc.slug}`);
+					});
+				}
+			});
+		});
+	});
 </script>
 
-<div class="relative w-full h-full">
-  <div
-    bind:this={mapContainer}
-    class="w-full h-full rounded-xl overflow-hidden"
-  ></div>
-</div>
+<div id="explore-map" class="h-full w-full"></div>
 
 <style>
-  :global(.leaflet-container) {
-    background: #1a1a1a;
-  }
+	/* Ensure the map never sits above the navigation sheet */
+	:global(.leaflet-container) {
+		z-index: 0;
+		background: #fff;
+	}
 
-  :global(.leaflet-popup-content-wrapper) {
-    background: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  }
+	/* Make popups more clickable and styled */
+	:global(.leaflet-popup-content-wrapper) {
+		cursor: pointer;
+		padding: 0;
+		border-radius: 0.5rem;
+	}
 
-  :global(.leaflet-popup-tip) {
-    background: white;
-  }
+	:global(.leaflet-popup-content) {
+		margin: 0;
+		min-width: 200px;
+	}
 
-  :global(.leaflet-control-zoom) {
-    border: none !important;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
-  }
-
-  :global(.leaflet-control-zoom a) {
-    background: white !important;
-    color: #374151 !important;
-    border: none !important;
-    width: 32px !important;
-    height: 32px !important;
-    line-height: 32px !important;
-  }
-
-  :global(.leaflet-control-zoom a:hover) {
-    background: #f3f4f6 !important;
-  }
-</style> 
+	:global(.leaflet-popup-tip) {
+		background: white;
+	}
+</style>

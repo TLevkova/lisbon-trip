@@ -1,99 +1,107 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  
-  let sheet: HTMLDivElement;
-  let startY = 0;
-  let currentY = 0;
-  let isOpen = false;
-  
-  const sections = [
-    'Flights',
-    'Stays',
-    'Explore',
-    'Eat & Drink',
-    'Moves',
-    'Local Flavours'
-  ];
+	import { createEventDispatcher, onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 
-  function handleTouchStart(e: TouchEvent) {
-    startY = e.touches[0].clientY;
-  }
+	export let isOpen = false; // parent controls this
+	const dispatch = createEventDispatcher();
 
-  function handleTouchMove(e: TouchEvent) {
-    if (!isOpen) return;
-    
-    currentY = e.touches[0].clientY - startY;
-    if (currentY > 0) {
-      sheet.style.transform = `translateY(${currentY}px)`;
-    }
-  }
+	let sheet: HTMLDivElement;
 
-  function handleTouchEnd() {
-    if (currentY > 100) {
-      isOpen = false;
-    }
-    sheet.style.transform = '';
-    currentY = 0;
-  }
+	// Touch-drag to dismiss
+	let startY = 0;
+	let currentY = 0;
+	let startX = 0;
+	let currentX = 0;
+	let activeLink: HTMLAnchorElement | null = null;
+	let isNavigating = false;
 
-  function toggleSheet() {
-    isOpen = !isOpen;
-  }
+	const links = [
+		{ href: '/', text: 'Home' },
+		{ href: '/flights', text: 'Flights' },
+		{ href: '/stays', text: 'Stays' },
+		{ href: '/explore', text: 'Explore' },
+		{ href: '/eat', text: 'Eat & Drink' },
+		{ href: '/moves', text: 'Moves' },
+		{ href: '/local-flavours', text: 'Local Flavours' }
+	];
+
+	async function navigateTo(href: string) {
+		if (isNavigating) return;
+		isNavigating = true;
+		dispatch('close');
+		await goto(href);
+		isNavigating = false;
+	}
+
+	function handleTouchStart(e: TouchEvent) {
+		if (isNavigating) return;
+		startY = e.touches[0].clientY;
+		startX = e.touches[0].clientX;
+		// Find the closest navigation link
+		const touchX = e.touches[0].clientX;
+		const touchY = e.touches[0].clientY;
+		const linkElements = sheet.querySelectorAll('a');
+		let closestLink: HTMLAnchorElement | null = null;
+		let minDistance = Infinity;
+
+		linkElements.forEach((link) => {
+			const rect = link.getBoundingClientRect();
+			const centerX = rect.left + rect.width / 2;
+			const centerY = rect.top + rect.height / 2;
+			const distance = Math.sqrt(
+				Math.pow(touchX - centerX, 2) + Math.pow(touchY - centerY, 2)
+			);
+			if (distance < minDistance) {
+				minDistance = distance;
+				closestLink = link;
+			}
+		});
+
+		activeLink = closestLink;
+	}
+
+	function handleTouchMove(e: TouchEvent) {
+		if (!isOpen || isNavigating) return;
+		currentY = e.touches[0].clientY - startY;
+		currentX = e.touches[0].clientX - startX;
+
+		// Handle vertical swipe for dismissing
+		if (Math.abs(currentY) > Math.abs(currentX)) {
+			if (currentY > 0) {
+				sheet.style.transform = `translateY(${currentY}px)`;
+			}
+		}
+		// Handle horizontal swipe for navigation
+		else if (activeLink && Math.abs(currentX) > 50) {
+			const direction = currentX > 0 ? 'next' : 'prev';
+			const currentIndex = links.findIndex(link => link.href === activeLink?.getAttribute('href'));
+			const targetIndex = direction === 'next' ? currentIndex + 1 : currentIndex - 1;
+			
+			if (targetIndex >= 0 && targetIndex < links.length) {
+				navigateTo(links[targetIndex].href);
+			}
+		}
+	}
+
+	function handleTouchEnd() {
+		if (currentY > 100) dispatch('close');
+		sheet.style.transform = '';
+		currentY = 0;
+		currentX = 0;
+		activeLink = null;
+	}
 </script>
 
-<div class="fixed inset-0 z-50 pointer-events-none">
-  <!-- Backdrop -->
-  <div 
-    class="absolute inset-0 bg-black/50 transition-opacity duration-300 pointer-events-auto"
-    class:opacity-0={!isOpen}
-    class:opacity-100={isOpen}
-    on:click={toggleSheet}
-    on:keydown={e => e.key === 'Escape' && toggleSheet()}
-    role="button"
-    tabindex="0"
-  ></div>
-
-  <!-- Sheet -->
-  <div
-    bind:this={sheet}
-    class="absolute bottom-0 left-0 right-0 bg-white dark:bg-gray-800 rounded-t-2xl shadow-xl transition-transform duration-300 pointer-events-auto"
-    class:translate-y-full={!isOpen}
-    class:translate-y-0={isOpen}
-    on:touchstart={handleTouchStart}
-    on:touchmove={handleTouchMove}
-    on:touchend={handleTouchEnd}
-  >
-    <!-- Handle -->
-    <div class="w-12 h-1 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto my-3"></div>
-
-    <!-- Content -->
-    <nav class="px-4 pb-8">
-      <ul class="space-y-4">
-        {#each sections as section}
-          <li>
-            <button
-              class="w-full text-left px-4 py-3 text-lg font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 rounded-xl transition-colors"
-              on:click={() => {
-                // Handle section click
-                isOpen = false;
-              }}
-            >
-              {section}
-            </button>
-          </li>
-        {/each}
-      </ul>
-    </nav>
-  </div>
-</div>
-
-<!-- Trigger button -->
-<button
-  class="fixed bottom-4 right-4 z-50 bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg transition-colors"
-  on:click={toggleSheet}
-  aria-label="Open navigation menu"
+<!-- Slide-up sheet -->
+<div
+  bind:this={sheet}
+  class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 rounded-t-2xl shadow-xl transition-transform duration-300 pointer-events-auto z-50"
+  class:translate-y-0={isOpen}
+  class:translate-y-full={!isOpen}
+  on:touchstart={handleTouchStart}
+  on:touchmove={handleTouchMove}
+  on:touchend={handleTouchEnd}
 >
-  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-  </svg>
-</button> 
+	<div class="mx-auto my-4 h-1 w-12 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+	<slot />
+</div>
