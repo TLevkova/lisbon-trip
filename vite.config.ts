@@ -43,6 +43,8 @@ export default defineConfig({
 				short_name: 'Lisbon Trip',
 				description: 'Your Lisbon travel companion',
 				theme_color: '#ffffff',
+				start_url: '/',
+				display: 'standalone',
 				icons: [
 					{
 						src: 'pwa-192x192.png',
