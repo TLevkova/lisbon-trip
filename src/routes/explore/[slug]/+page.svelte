@@ -235,12 +235,12 @@
 		</div>
 
 		<!-- Visited Toggle -->
-		<div class="mb-8 space-y-4">
-			<div
-				class="flex items-center justify-between rounded-xl bg-white p-6 shadow-sm dark:bg-gray-800"
-			>
-				<div>
-					<h2 class="text-xl font-semibold text-gray-900 dark:text-white">Been there?</h2>
+		<div class="mb-12 space-y-8">
+			<div class="relative">
+				<h2 class="mb-6 text-xl font-bold text-gray-900 dark:text-white pl-3 border-l-4 border-[#b74d95] hover:pl-4 transition-all duration-300">
+					Been there?
+				</h2>
+				<div class="flex items-center justify-between">
 					{#if visited && visitedAt}
 						<p class="text-sm text-gray-500 dark:text-gray-400">
 							Visited on {formatVisitedDate(visitedAt)}
@@ -248,26 +248,28 @@
 					{:else}
 						<p class="text-sm text-gray-500 dark:text-gray-400">Mark this place as visited</p>
 					{/if}
+					<button
+						class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
+						class:bg-blue-600={visited}
+						class:bg-gray-200={!visited}
+						on:click={toggleVisited}
+						disabled={loading || toggling}
+					>
+						<span class="sr-only">Toggle visited status</span>
+						<span
+							class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
+							class:translate-x-6={visited}
+							class:translate-x-1={!visited}
+						></span>
+					</button>
 				</div>
-				<button
-					class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
-					class:bg-blue-600={visited}
-					class:bg-gray-200={!visited}
-					on:click={toggleVisited}
-					disabled={loading || toggling}
-				>
-					<span class="sr-only">Toggle visited status</span>
-					<span
-						class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
-						class:translate-x-6={visited}
-						class:translate-x-1={!visited}
-					></span>
-				</button>
 			</div>
 
 			<!-- Planned Visit Date -->
-			<div class="rounded-xl bg-white p-6 shadow-sm dark:bg-gray-800">
-				<h2 class="mb-4 text-xl font-semibold text-gray-900 dark:text-white">Plan to Visit</h2>
+			<div class="relative">
+				<h2 class="mb-6 text-xl font-bold text-gray-900 dark:text-white pl-3 border-l-4 border-[#b74d95] hover:pl-4 transition-all duration-300">
+					Plan to Visit
+				</h2>
 				<div class="space-y-3">
 					<div class="flex items-center space-x-2">
 						<input
@@ -301,13 +303,15 @@
 
 		<!-- Opening Hours -->
 		{#if data.item.openingHours && data.item.openingHours.toLowerCase() !== 'n/a'}
-			<div class="mb-8 rounded-xl bg-white p-6 shadow-sm dark:bg-gray-800">
-				<h2 class="mb-4 text-xl font-semibold text-gray-900 dark:text-white">Opening Hours</h2>
-				<div class="space-y-2">
+			<div class="relative mb-12">
+				<h2 class="mb-6 text-xl font-bold text-gray-900 dark:text-white pl-3 border-l-4 border-[#b74d95] hover:pl-4 transition-all duration-300">
+					Opening Hours
+				</h2>
+				<div class="space-y-2 pl-3">
 					{#each formatOpeningHours() as { day, hours }}
-						<div class="flex items-center justify-between">
-							<span class="text-gray-600 dark:text-gray-400">{day}</span>
-							<span class="font-medium text-gray-900 dark:text-white">{hours}</span>
+						<div class="flex items-center justify-between py-1">
+							<span class="text-gray-600 dark:text-gray-400 font-medium">{day}</span>
+							<span class="text-gray-900 dark:text-white">{hours}</span>
 						</div>
 					{/each}
 				</div>
@@ -315,43 +319,30 @@
 		{/if}
 
 		<!-- Location -->
-		<div class="mb-8 rounded-xl bg-white p-6 shadow-sm dark:bg-gray-800">
-			<h2 class="mb-4 text-xl font-semibold text-gray-900 dark:text-white">Location</h2>
-			<p class="mb-4 text-gray-600 dark:text-gray-400">{data.item.address}</p>
-			<a
-				href={getGoogleMapsLink()}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700"
-			>
-				Open in Maps
-			</a>
+		<div class="relative mb-12">
+			<h2 class="mb-6 text-xl font-bold text-gray-900 dark:text-white pl-3 border-l-4 border-[#b74d95] hover:pl-4 transition-all duration-300">
+				Location
+			</h2>
+			<div class="pl-3">
+				<p class="mb-4 text-gray-600 dark:text-gray-400">{data.item.address}</p>
+				<a
+					href={getGoogleMapsLink()}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700"
+				>
+					Open in Maps
+				</a>
+			</div>
 		</div>
 
 		<!-- Comprehensive Description -->
 		{#if comprehensiveDescription}
-			<div class="mb-8 rounded-xl bg-white p-6 shadow-sm dark:bg-gray-800">
+			<div class="relative mb-12">
 				<div class="flex items-center justify-between">
-					<button
-						class="flex items-center justify-between text-left"
-						on:click={() => (isExpanded = !isExpanded)}
-					>
-						<h2 class="text-xl font-semibold text-gray-900 dark:text-white">Description</h2>
-						<svg
-							class="ml-2 h-6 w-6 transform transition-transform duration-200"
-							class:rotate-180={isExpanded}
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M19 9l-7 7-7-7"
-							/>
-						</svg>
-					</button>
+					<h2 class="mb-6 text-xl font-bold text-gray-900 dark:text-white pl-3 border-l-4 border-[#b74d95] hover:pl-4 transition-all duration-300">
+						Description
+					</h2>
 					<button
 						class="ml-4 rounded-full p-2 text-gray-600 transition-colors hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
 						on:click={toggleAudio}
@@ -393,19 +384,41 @@
 						{/if}
 					</button>
 				</div>
-				{#if isExpanded}
-					<div class="mt-4 w-full">
-						<div class="prose prose-sm sm:prose-base lg:prose-lg dark:prose-invert w-full">
-							<p class="text-gray-700 dark:text-gray-300">
-								{#each comprehensiveDescription.split('\n') as paragraph}
-									{#if paragraph.trim()}
-										<span class="mb-4 block">{paragraph}</span>
-									{/if}
-								{/each}
-							</p>
+				<div class="pl-3">
+					<button
+						class="flex items-center text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+						on:click={() => (isExpanded = !isExpanded)}
+					>
+						<svg
+							class="mr-2 h-5 w-5 transform transition-transform duration-200"
+							class:rotate-180={isExpanded}
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M19 9l-7 7-7-7"
+							/>
+						</svg>
+						<span class="text-sm font-medium">{isExpanded ? 'Show less' : 'Show more'}</span>
+					</button>
+					{#if isExpanded}
+						<div class="mt-4">
+							<div class="prose prose-sm sm:prose-base lg:prose-lg dark:prose-invert">
+								<p class="text-gray-700 dark:text-gray-300">
+									{#each comprehensiveDescription.split('\n') as paragraph}
+										{#if paragraph.trim()}
+											<span class="mb-4 block">{paragraph}</span>
+										{/if}
+									{/each}
+								</p>
+							</div>
 						</div>
-					</div>
-				{/if}
+					{/if}
+				</div>
 			</div>
 		{/if}
 
