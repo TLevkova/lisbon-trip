@@ -161,5 +161,455 @@ export const exploreLocations: ExploreLocation[] = [
     price: '€11',
     heroImg: '/images/explore/maat.jpg',
     gmapsUrl: 'https://www.google.com/maps?q=38.6957,-9.1979'
+  },
+  {
+    id: '9',
+    slug: 'palacio-da-pena',
+    title: 'Palácio da Pena',
+    description: 'A stunning Romanticist castle in Sintra, known for its vibrant colors and eclectic architectural style. This UNESCO World Heritage site offers breathtaking views of the surrounding landscape.',
+    image: '/images/placeholder.jpg',
+    rating: 4.8,
+    category: 'Palace',
+    coordinates: {
+      lat: 38.7876,
+      lng: -9.3905
+    },
+    address: 'Estrada da Pena, 2710-609 Sintra, Portugal',
+    openingHours: '09:30 - 18:30',
+    price: '€14',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7876,-9.3905'
+  },
+  {
+    id: '10',
+    slug: 'chalet-countess-edla',
+    title: 'Chalet and Garden of the Countess of Edla',
+    description: 'A romantic retreat built in the style of an alpine chalet, featuring unique architectural elements and beautiful gardens.',
+    image: '/images/placeholder.jpg',
+    rating: 4.2,
+    category: 'Historical Site',
+    coordinates: {
+      lat: 38.7872,
+      lng: -9.3935
+    },
+    address: 'Parque da Pena, 2710-609 Sintra, Portugal',
+    openingHours: '09:30 - 18:00',
+    price: '€9',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7872,-9.3935'
+  },
+  {
+    id: '11',
+    slug: 'castelo-dos-mouros',
+    title: 'Castelo dos Mouros',
+    description: 'A medieval castle with stunning views, built by the Moors in the 8th and 9th centuries. Its walls snake across the hills of Sintra.',
+    image: '/images/placeholder.jpg',
+    rating: 4.5,
+    category: 'Castle',
+    coordinates: {
+      lat: 38.7926,
+      lng: -9.3897
+    },
+    address: 'Estrada da Pena, 2710-609 Sintra, Portugal',
+    openingHours: '09:30 - 18:30',
+    price: '€8',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7926,-9.3897'
+  },
+  {
+    id: '12',
+    slug: 'quinta-da-regaleira',
+    title: 'Quinta da Regaleira',
+    description: 'A romantic palace and chapel with elaborate Gothic, Renaissance, and Manueline architectural elements, surrounded by mysterious gardens with hidden tunnels and wells.',
+    image: '/images/placeholder.jpg',
+    rating: 4.7,
+    category: 'Palace',
+    coordinates: {
+      lat: 38.7963,
+      lng: -9.3961
+    },
+    address: 'R. Barbosa du Bocage 5, 2710-567 Sintra, Portugal',
+    openingHours: '09:30 - 18:00',
+    price: '€10',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7963,-9.3961'
+  },
+  {
+    id: '13',
+    slug: 'palacio-de-monserrate',
+    title: 'Palácio de Monserrate',
+    description: 'An exotic palatial villa that exemplifies Romantic architecture, surrounded by a beautiful park with botanical gardens.',
+    image: '/images/placeholder.jpg',
+    rating: 4.6,
+    category: 'Palace',
+    coordinates: {
+      lat: 38.7926,
+      lng: -9.4198
+    },
+    address: 'Estrada de Monserrate, 2710-405 Sintra, Portugal',
+    openingHours: '09:30 - 18:00',
+    price: '€8',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7926,-9.4198'
+  },
+  {
+    id: '14',
+    slug: 'national-palace-sintra',
+    title: 'National Palace of Sintra',
+    description: 'The best-preserved medieval royal palace in Portugal, known for its distinctive twin chimneys and beautiful interior decorations.',
+    image: '/images/placeholder.jpg',
+    rating: 4.5,
+    category: 'Palace',
+    coordinates: {
+      lat: 38.7975,
+      lng: -9.3907
+    },
+    address: 'Largo Rainha Dona Amélia, 2710-616 Sintra, Portugal',
+    openingHours: '09:30 - 18:30',
+    price: '€10',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7975,-9.3907'
+  },
+  {
+    id: '15',
+    slug: 'parque-da-liberdade',
+    title: 'Parque da Liberdade',
+    description: 'A peaceful urban park in Sintra offering walking trails, playgrounds, and beautiful landscaping.',
+    image: '/images/placeholder.jpg',
+    rating: 4.3,
+    category: 'Park',
+    coordinates: {
+      lat: 38.7989,
+      lng: -9.3873
+    },
+    address: 'Av. Dr. Miguel Bombarda, 2710 Sintra, Portugal',
+    openingHours: 'Always open',
+    price: 'Free',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7989,-9.3873'
+  },
+  {
+    id: '16',
+    slug: 'rua-augusta',
+    title: 'Rua Augusta',
+    description: 'The main pedestrian street in Lisbon\'s downtown, featuring historic buildings, shops, restaurants, and the iconic Rua Augusta Arch.',
+    image: '/images/placeholder.jpg',
+    rating: 4.5,
+    category: 'Street',
+    coordinates: {
+      lat: 38.7100,
+      lng: -9.1366
+    },
+    address: 'Rua Augusta, Lisbon, Portugal',
+    openingHours: 'Always open',
+    price: 'Free',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7100,-9.1366'
+  },
+  {
+    id: '17',
+    slug: 'rossio',
+    title: 'Rossio',
+    description: 'The popular name for Pedro IV Square, one of Lisbon\'s main squares since the Middle Ages, known for its wave-pattern cobblestones and historic cafes.',
+    image: '/images/placeholder.jpg',
+    rating: 4.4,
+    category: 'Square',
+    coordinates: {
+      lat: 38.7147,
+      lng: -9.1394
+    },
+    address: 'Praça Dom Pedro IV, Lisbon, Portugal',
+    openingHours: 'Always open',
+    price: 'Free',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7147,-9.1394'
+  },
+  {
+    id: '18',
+    slug: 'carmo-convent',
+    title: 'Carmo Convent',
+    description: 'Gothic ruins of a medieval convent, serving as a powerful reminder of the 1755 earthquake and housing an archaeological museum.',
+    image: '/images/placeholder.jpg',
+    rating: 4.4,
+    category: 'Historical Site',
+    coordinates: {
+      lat: 38.7121,
+      lng: -9.1404
+    },
+    address: 'Largo do Carmo, 1200-092 Lisboa, Portugal',
+    openingHours: '10:00 - 18:00',
+    price: '€5',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7121,-9.1404'
+  },
+  {
+    id: '19',
+    slug: 'miradouro-sao-pedro',
+    title: 'Miradouro de São Pedro de Alcântara',
+    description: 'A beautiful viewpoint offering panoramic views of central Lisbon, São Jorge Castle, and the Tagus River.',
+    image: '/images/placeholder.jpg',
+    rating: 4.6,
+    category: 'Viewpoint',
+    coordinates: {
+      lat: 38.7156,
+      lng: -9.1442
+    },
+    address: 'R. de São Pedro de Alcântara, 1250-237 Lisboa, Portugal',
+    openingHours: 'Always open',
+    price: 'Free',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7156,-9.1442'
+  },
+  {
+    id: '20',
+    slug: 'lisbon-cathedral',
+    title: 'Lisbon Cathedral (Sé)',
+    description: 'The oldest church in Lisbon, built in 1147, featuring a mixture of architectural styles from Romanesque to Gothic and Baroque.',
+    image: '/images/placeholder.jpg',
+    rating: 4.3,
+    category: 'Religious Site',
+    coordinates: {
+      lat: 38.7097,
+      lng: -9.1336
+    },
+    address: 'Largo da Sé, 1100-585 Lisboa, Portugal',
+    openingHours: '09:00 - 19:00',
+    price: 'Free',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7097,-9.1336'
+  },
+  {
+    id: '21',
+    slug: 'museu-nacional-do-azulejo',
+    title: 'Museu Nacional do Azulejo',
+    description: 'A unique museum dedicated to the art of Portuguese tiles, housed in a former monastery with a stunning collection spanning five centuries.',
+    image: '/images/placeholder.jpg',
+    rating: 4.5,
+    category: 'Museum',
+    coordinates: {
+      lat: 38.7250,
+      lng: -9.1135
+    },
+    address: 'R. Me. Deus 4, 1900-312 Lisboa, Portugal',
+    openingHours: '10:00 - 18:00',
+    price: '€5',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7250,-9.1135'
+  },
+  {
+    id: '22',
+    slug: 'padrao-dos-descobrimentos',
+    title: 'Padrão dos Descobrimentos',
+    description: 'A monument celebrating Portuguese explorers, featuring sculptures of historical figures and offering panoramic views from its viewing platform.',
+    image: '/images/placeholder.jpg',
+    rating: 4.4,
+    category: 'Monument',
+    coordinates: {
+      lat: 38.6936,
+      lng: -9.2057
+    },
+    address: 'Av. Brasília, 1400-038 Lisboa, Portugal',
+    openingHours: '10:00 - 18:00',
+    price: '€6',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.6936,-9.2057'
+  },
+  {
+    id: '23',
+    slug: 'parque-das-nacoes',
+    title: 'Parque das Nações',
+    description: 'A modern district developed for Expo \'98, featuring contemporary architecture, gardens, the Oceanário, and various leisure facilities.',
+    image: '/images/placeholder.jpg',
+    rating: 4.5,
+    category: 'District',
+    coordinates: {
+      lat: 38.7633,
+      lng: -9.0951
+    },
+    address: 'Parque das Nações, 1990 Lisboa, Portugal',
+    openingHours: 'Always open',
+    price: 'Free',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7633,-9.0951'
+  },
+  {
+    id: '24',
+    slug: 'panteao-nacional',
+    title: 'Panteão Nacional (Church of Santa Engrácia)',
+    description: 'A stunning 17th-century monument and national pantheon, housing the tombs of important Portuguese figures. Its impressive dome offers panoramic views of Lisbon and the Tagus River.',
+    image: '/images/placeholder.jpg',
+    rating: 4.6,
+    category: 'Monument',
+    coordinates: {
+      lat: 38.7155,
+      lng: -9.1242
+    },
+    address: 'Campo de Santa Clara, 1100-471 Lisboa, Portugal',
+    openingHours: '10:00 - 17:00',
+    price: '€4',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7155,-9.1242'
+  },
+  {
+    id: '25',
+    slug: 'sao-vicente-de-fora',
+    title: 'Igreja de São Vicente de Fora',
+    description: 'A 17th-century monastery and church, one of the most important religious monuments in Lisbon, featuring beautiful azulejos and the tomb of the Braganza dynasty.',
+    image: '/images/placeholder.jpg',
+    rating: 4.5,
+    category: 'Religious Site',
+    coordinates: {
+      lat: 38.7147,
+      lng: -9.1283
+    },
+    address: 'Largo de São Vicente, 1100-572 Lisboa, Portugal',
+    openingHours: '10:00 - 18:00',
+    price: '€5',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7147,-9.1283'
+  },
+  {
+    id: '26',
+    slug: 'miradouro-portas-do-sol',
+    title: 'Miradouro das Portas do Sol',
+    description: 'One of Lisbon\'s most famous viewpoints, offering spectacular views over Alfama\'s terracotta rooftops and the Tagus River.',
+    image: '/images/placeholder.jpg',
+    rating: 4.7,
+    category: 'Viewpoint',
+    coordinates: {
+      lat: 38.7128,
+      lng: -9.1307
+    },
+    address: 'Largo Portas do Sol, 1100-411 Lisboa, Portugal',
+    openingHours: 'Always open',
+    price: 'Free',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7128,-9.1307'
+  },
+  {
+    id: '27',
+    slug: 'miradouro-santa-luzia',
+    title: 'Miradouro de Santa Luzia',
+    description: 'A romantic terrace offering stunning views of Alfama and the Tagus River, decorated with beautiful azulejos panels depicting historical scenes.',
+    image: '/images/placeholder.jpg',
+    rating: 4.6,
+    category: 'Viewpoint',
+    coordinates: {
+      lat: 38.7124,
+      lng: -9.1314
+    },
+    address: 'Largo de Santa Luzia, 1100-487 Lisboa, Portugal',
+    openingHours: 'Always open',
+    price: 'Free',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7124,-9.1314'
+  },
+  {
+    id: '28',
+    slug: 'monumento-dos-restauradores',
+    title: 'Monumento dos Restauradores',
+    description: 'An obelisk commemorating Portugal\'s independence from Spain in 1640, located in the beautiful Restauradores Square.',
+    image: '/images/placeholder.jpg',
+    rating: 4.3,
+    category: 'Monument',
+    coordinates: {
+      lat: 38.7171,
+      lng: -9.1422
+    },
+    address: 'Praça dos Restauradores, 1250-096 Lisboa, Portugal',
+    openingHours: 'Always open',
+    price: 'Free',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7171,-9.1422'
+  },
+  {
+    id: '29',
+    slug: 'statue-of-john-i',
+    title: 'Statue Of John I',
+    description: 'A historic equestrian statue honoring King John I of Portugal, located in Praça da Figueira, celebrating one of Portugal\'s most important monarchs.',
+    image: '/images/placeholder.jpg',
+    rating: 4.2,
+    category: 'Monument',
+    coordinates: {
+      lat: 38.7142,
+      lng: -9.1378
+    },
+    address: 'Praça da Figueira, Lisboa, Portugal',
+    openingHours: 'Always open',
+    price: 'Free',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7142,-9.1378'
+  },
+  {
+    id: '30',
+    slug: 'carmo-archaeological-museum',
+    title: 'Carmo Archaeological Museum',
+    description: 'Located in the ruins of the Gothic Carmo Church, this museum houses a fascinating collection of archaeological finds, tomb sculptures, and architectural fragments.',
+    image: '/images/placeholder.jpg',
+    rating: 4.4,
+    category: 'Museum',
+    coordinates: {
+      lat: 38.7121,
+      lng: -9.1404
+    },
+    address: 'Largo do Carmo, 1200-092 Lisboa, Portugal',
+    openingHours: '10:00 - 18:00',
+    price: '€5',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7121,-9.1404'
+  },
+  {
+    id: '31',
+    slug: 'bairro-alto',
+    title: 'Bairro Alto',
+    description: 'A bohemian neighborhood known for its vibrant nightlife, traditional restaurants, and alternative shops. By day, it\'s a cultural hub; by night, it transforms into Lisbon\'s party central.',
+    image: '/images/placeholder.jpg',
+    rating: 4.5,
+    category: 'District',
+    coordinates: {
+      lat: 38.7127,
+      lng: -9.1462
+    },
+    address: 'Bairro Alto, Lisboa, Portugal',
+    openingHours: 'Always open',
+    price: 'Free',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7127,-9.1462'
+  },
+  {
+    id: '32',
+    slug: 'parque-eduardo-vii',
+    title: 'Parque Eduardo VII',
+    description: 'Lisbon\'s largest central park, featuring geometrically designed gardens, a stunning view over the city and the Tagus River, and the impressive greenhouse Estufa Fria.',
+    image: '/images/placeholder.jpg',
+    rating: 4.5,
+    category: 'Park',
+    coordinates: {
+      lat: 38.7283,
+      lng: -9.1526
+    },
+    address: 'Parque Eduardo VII, 1070-051 Lisboa, Portugal',
+    openingHours: 'Always open',
+    price: 'Free',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7283,-9.1526'
+  },
+  {
+    id: '33',
+    slug: 'palace-fronteira',
+    title: 'Palace Fronteira',
+    description: 'A 17th-century palace featuring some of Portugal\'s finest azulejos, formal gardens, and beautiful fountains. Known for its stunning tilework and baroque architecture.',
+    image: '/images/placeholder.jpg',
+    rating: 4.7,
+    category: 'Palace',
+    coordinates: {
+      lat: 38.7583,
+      lng: -9.1833
+    },
+    address: 'Largo São Domingos de Benfica 1, 1500-554 Lisboa, Portugal',
+    openingHours: '10:30 - 17:00',
+    price: '€12',
+    heroImg: '/images/placeholder.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7583,-9.1833'
   }
 ]; 
