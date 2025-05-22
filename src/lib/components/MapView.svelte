@@ -15,6 +15,17 @@
 		const L = (await import('leaflet')).default;
 		await import('leaflet/dist/leaflet.css');
 		
+		// Custom icon configuration
+		const icon = L.icon({
+			iconUrl: '/images/leaflet/marker-icon.png',
+			iconRetinaUrl: '/images/leaflet/marker-icon-2x.png',
+			shadowUrl: '/images/leaflet/marker-shadow.png',
+			iconSize: [25, 41],
+			iconAnchor: [12, 41],
+			popupAnchor: [1, -34],
+			shadowSize: [41, 41]
+		});
+		
 		// create map
 		map = L.map('explore-map', {
 			scrollWheelZoom: false,
@@ -30,7 +41,7 @@
 
 		// markers
 		locations.forEach((loc) => {
-			const marker = L.marker([loc.coordinates.lat, loc.coordinates.lng])
+			const marker = L.marker([loc.coordinates.lat, loc.coordinates.lng], { icon })
 				.addTo(map)
 				.bindPopup(`
 					<div class="p-2">

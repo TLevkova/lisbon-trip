@@ -14,6 +14,17 @@
 		const L = (await import('leaflet')).default;
 		await import('leaflet/dist/leaflet.css');
 
+		// Custom icon configuration
+		const icon = L.icon({
+			iconUrl: '/images/leaflet/marker-icon.png',
+			iconRetinaUrl: '/images/leaflet/marker-icon-2x.png',
+			shadowUrl: '/images/leaflet/marker-shadow.png',
+			iconSize: [25, 41],
+			iconAnchor: [12, 41],
+			popupAnchor: [1, -34],
+			shadowSize: [41, 41]
+		});
+
 		// Initialize map
 		const map = L.map(mapContainer, {
 			center: [lat, lng],
@@ -27,8 +38,8 @@
 			attribution: '© OpenStreetMap'
 		}).addTo(map);
 
-		// Marker
-		L.marker([lat, lng]).addTo(map);
+		// Marker with custom icon
+		L.marker([lat, lng], { icon }).addTo(map);
 	});
 </script>
 
