@@ -153,21 +153,21 @@ export const exploreLocations: ExploreLocation[] = [
     rating: 4.3,
     category: 'Museum',
     coordinates: {
-      lat: 38.6957,
-      lng: -9.1979
+      lat: 38.6960,
+      lng: -9.1936
     },
     address: 'R. de São Domingos, 1300-598 Lisboa, Portugal',
     openingHours: '10:00 - 19:00',
     price: '€11',
     heroImg: '/images/explore/maat.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.6957,-9.1979'
+    gmapsUrl: 'https://www.google.com/maps?q=38.6960,-9.1936'
   },
   {
     id: '9',
     slug: 'palacio-da-pena',
     title: 'Palácio da Pena',
     description: 'A stunning Romanticist castle in Sintra, known for its vibrant colors and eclectic architectural style. This UNESCO World Heritage site offers breathtaking views of the surrounding landscape.',
-    image: '/images/placeholder.jpg',
+    image: '/images/explore/palacio-da-pena.jpg',
     rating: 4.8,
     category: 'Palace',
     coordinates: {
@@ -177,7 +177,7 @@ export const exploreLocations: ExploreLocation[] = [
     address: 'Estrada da Pena, 2710-609 Sintra, Portugal',
     openingHours: '09:30 - 18:30',
     price: '€14',
-    heroImg: '/images/placeholder.jpg',
+    heroImg: '/images/explore/palacio-da-pena.jpg',
     gmapsUrl: 'https://www.google.com/maps?q=38.7876,-9.3905'
   },
   {
@@ -185,54 +185,54 @@ export const exploreLocations: ExploreLocation[] = [
     slug: 'chalet-countess-edla',
     title: 'Chalet and Garden of the Countess of Edla',
     description: 'A romantic retreat built in the style of an alpine chalet, featuring unique architectural elements and beautiful gardens.',
-    image: '/images/placeholder.jpg',
+    image: '/images/explore/chalet-countess-edla.jpg',
     rating: 4.2,
     category: 'Historical Site',
     coordinates: {
-      lat: 38.7872,
-      lng: -9.3935
+      lat: 38.7851,
+      lng: -9.3991
     },
     address: 'Parque da Pena, 2710-609 Sintra, Portugal',
-    openingHours: '09:30 - 18:00',
-    price: '€9',
-    heroImg: '/images/placeholder.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.7872,-9.3935'
+    openingHours: '09:30 - 17:30',
+    price: 'n/a',
+    heroImg: '/images/explore/chalet-countess-edla.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7851,-9.3991'
   },
   {
     id: '11',
     slug: 'castelo-dos-mouros',
     title: 'Castelo dos Mouros',
     description: 'A medieval castle with stunning views, built by the Moors in the 8th and 9th centuries. Its walls snake across the hills of Sintra.',
-    image: '/images/placeholder.jpg',
-    rating: 4.5,
+    image: '/images/explore/castelo-dos-mouros.jpg',
+    rating: 4.6,
     category: 'Castle',
     coordinates: {
-      lat: 38.7926,
-      lng: -9.3897
+      lat: 38.7925,
+      lng: -9.3893
     },
     address: 'Estrada da Pena, 2710-609 Sintra, Portugal',
-    openingHours: '09:30 - 18:30',
-    price: '€8',
-    heroImg: '/images/placeholder.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.7926,-9.3897'
+    openingHours: '09:30 - 18:00',
+    price: '€12',
+    heroImg: '/images/explore/castelo-dos-mouros.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7925,-9.3893'
   },
   {
     id: '12',
     slug: 'quinta-da-regaleira',
     title: 'Quinta da Regaleira',
     description: 'A romantic palace and chapel with elaborate Gothic, Renaissance, and Manueline architectural elements, surrounded by mysterious gardens with hidden tunnels and wells.',
-    image: '/images/placeholder.jpg',
-    rating: 4.7,
+    image: '/images/explore/quinta-da-regaleira.jpg',
+    rating: 4.8,
     category: 'Palace',
     coordinates: {
       lat: 38.7963,
-      lng: -9.3961
+      lng: -9.3960
     },
     address: 'R. Barbosa du Bocage 5, 2710-567 Sintra, Portugal',
-    openingHours: '09:30 - 18:00',
-    price: '€10',
-    heroImg: '/images/placeholder.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.7963,-9.3961'
+    openingHours: '10:00 - 17:30',
+    price: '€15',
+    heroImg: '/images/explore/quinta-da-regaleira.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7963,-9.3960'
   },
   {
     id: '13',
