@@ -76,4 +76,100 @@ export interface ExploreItem {
   };
 }
 
+export interface TransportMode {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  color: string;
+}
+
+export interface VivaViagemCard {
+  title: string;
+  description: string;
+  pricing: {
+    cardCost: number;
+    recommendedCredit: {
+      min: number;
+      max: number;
+    };
+    totalCost: {
+      min: number;
+      max: number;
+    };
+  };
+  fares: {
+    metro: number;
+    bus: number;
+    tram: number;
+    ferry: number;
+  };
+  estimatedTrips: string;
+  link: string;
+}
+
+export interface TransportOption {
+  id: string;
+  name: string;
+  icon: string;
+  recommended?: boolean;
+  cost: {
+    amount: number | string;
+    currency: string;
+    note: string;
+  };
+  journeyTime: string;
+  pros: string[];
+  cons: string[];
+  route?: string;
+  tip?: string;
+}
+
+export interface DepartureStation {
+  name: string;
+  note: string;
+}
+
+export interface SintraTrip {
+  title: string;
+  trainDetails: {
+    departureStations: DepartureStation[];
+    schedule: {
+      firstTrain: string;
+      lastTrain: string;
+      frequency: string;
+      journeyTime: string;
+    };
+  };
+  pricing: {
+    oneWay: number;
+    return: number;
+    currency: string;
+    note: string;
+  };
+  ticketing: {
+    options: string[];
+  };
+  tips: string[];
+}
+
+export interface MovesData {
+  publicTransport: {
+    overview: string;
+    modes: TransportMode[];
+  };
+  vivaViagem: VivaViagemCard;
+  airportTransport: {
+    arrivalInfo: {
+      terminal: string;
+      arrivalTime: string;
+      passengers: number;
+      luggage: boolean;
+    };
+    options: TransportOption[];
+  };
+  sintraTrip: SintraTrip;
+  lastUpdated: string;
+}
+
  

@@ -62,9 +62,6 @@
 		<a href="/stays" class="hover:text-blue-600" on:click={() => navOpen.set(false)}> Stays </a>
 		<a href="/explore" class="hover:text-blue-600" on:click={() => navOpen.set(false)}> Explore </a>
 		<a href="/moves" class="hover:text-blue-600" on:click={() => navOpen.set(false)}> Moves </a>
-		<a href="/local-flavours" class="hover:text-blue-600" on:click={() => navOpen.set(false)}>
-			Local Flavours
-		</a>
 	</nav>
 </NavSheet>
 

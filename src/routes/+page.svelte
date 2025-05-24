@@ -1,18 +1,19 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-
 	import { onMount } from 'svelte';
+	import { preloadData, goto } from '$app/navigation';
 	import localforage from 'localforage';
+	import { exploreLocations } from '$lib/data/explore';
 
 	const dataFiles = [
 		'flights.json',
 		'stays.json',
-		'explore.json'
+		'explore.json',
+		'moves.json'
 	];
 
 	const dataStore = localforage.createInstance({
-		name: 'lisbon-trip',
-		storeName: 'data'
+		name: 'LisbonTripData'
 	});
 
 	// PWA Install state
@@ -50,9 +51,9 @@
 			const isInitialized = await dataStore.getItem('initialized');
 			
 			if (!isInitialized) {
-				console.log('First time install - downloading data files...');
+				console.log('First time install - downloading data files and preloading routes...');
 				
-				// Download and store each file
+				// Download and store each data file
 				await Promise.all(dataFiles.map(async (filename) => {
 					try {
 						const response = await fetch(`/data/${filename}`);
@@ -66,12 +67,71 @@
 					}
 				}));
 
+				// Get explore data to preload all slug routes
+				let exploreRoutes: string[] = [];
+				try {
+					// Use the imported explore data to get all slugs
+					exploreRoutes = exploreLocations.map(item => `/explore/${item.slug}`);
+					console.log(`Found ${exploreRoutes.length} explore routes to preload:`, exploreRoutes);
+				} catch (error) {
+					console.error('Error getting explore routes:', error);
+				}
+
+				// Preload all routes using SvelteKit's preloadData
+				const routesToPreload = ['/moves', '/explore', '/stays', '/flights', ...exploreRoutes];
+				console.log('Preloading routes for offline access...');
+				
+				await Promise.all(routesToPreload.map(async (route) => {
+					try {
+						await preloadData(route);
+						console.log(`Successfully preloaded ${route}`);
+					} catch (error) {
+						console.error(`Error preloading ${route}:`, error);
+						// Fallback to regular fetch if preloadData fails
+						try {
+							await fetch(route);
+							console.log(`Successfully fetched ${route} as fallback`);
+						} catch (fetchError) {
+							console.error(`Fallback fetch failed for ${route}:`, fetchError);
+						}
+					}
+				}));
+
+				// Preload all explore images for offline access
+				console.log('Preloading explore images for offline access...');
+				const imagePromises = exploreLocations.map(async (location) => {
+					try {
+						// Preload both image and heroImg (they might be different)
+						const imagesToPreload = [location.image, location.heroImg].filter(Boolean);
+						await Promise.all(imagesToPreload.map(async (imagePath) => {
+							return new Promise((resolve, reject) => {
+								const img = new Image();
+								img.onload = () => {
+									console.log(`Successfully preloaded image: ${imagePath}`);
+									resolve(img);
+								};
+								img.onerror = () => {
+									console.error(`Failed to preload image: ${imagePath}`);
+									reject(new Error(`Failed to load ${imagePath}`));
+								};
+								img.src = imagePath;
+							});
+						}));
+					} catch (error) {
+						console.error(`Error preloading images for ${location.slug}:`, error);
+					}
+				});
+
+				await Promise.all(imagePromises);
+
 				// Mark as initialized
 				await dataStore.setItem('initialized', true);
-				console.log('Data initialization complete');
+				console.log('Data initialization and route preloading complete');
 			} else {
-				// Even if initialized, ensure all data is up to date
-				console.log('Checking for data updates...');
+				// Even if initialized, ensure all data is up to date and routes are preloaded
+				console.log('Checking for data updates and ensuring routes are preloaded...');
+				
+				// Update data files
 				await Promise.all(dataFiles.map(async (filename) => {
 					try {
 						const response = await fetch(`/data/${filename}`);
@@ -84,6 +144,53 @@
 						console.error(`Error updating ${filename}:`, error);
 					}
 				}));
+
+				// Get explore data to preload all slug routes
+				let exploreRoutes: string[] = [];
+				try {
+					// Use the imported explore data to get all slugs
+					exploreRoutes = exploreLocations.map(item => `/explore/${item.slug}`);
+					console.log(`Found ${exploreRoutes.length} explore routes to preload:`, exploreRoutes);
+				} catch (error) {
+					console.error('Error getting explore routes:', error);
+				}
+
+				// Preload routes again to ensure they're cached
+				const routesToPreload = ['/moves', '/explore', '/stays', '/flights', ...exploreRoutes];
+				await Promise.all(routesToPreload.map(async (route) => {
+					try {
+						await preloadData(route);
+						console.log(`Successfully preloaded ${route}`);
+					} catch (error) {
+						console.error(`Error preloading ${route}:`, error);
+					}
+				}));
+
+				// Preload explore images again to ensure they're cached
+				console.log('Ensuring explore images are preloaded...');
+				const imagePromises = exploreLocations.map(async (location) => {
+					try {
+						const imagesToPreload = [location.image, location.heroImg].filter(Boolean);
+						await Promise.all(imagesToPreload.map(async (imagePath) => {
+							return new Promise((resolve, reject) => {
+								const img = new Image();
+								img.onload = () => {
+									console.log(`Successfully preloaded image: ${imagePath}`);
+									resolve(img);
+								};
+								img.onerror = () => {
+									console.error(`Failed to preload image: ${imagePath}`);
+									reject(new Error(`Failed to load ${imagePath}`));
+								};
+								img.src = imagePath;
+							});
+						}));
+					} catch (error) {
+						console.error(`Error preloading images for ${location.slug}:`, error);
+					}
+				});
+
+				await Promise.all(imagePromises);
 			}
 		} catch (error) {
 			console.error('Error during data initialization:', error);

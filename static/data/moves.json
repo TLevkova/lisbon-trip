@@ -1,0 +1,149 @@
+{
+  "publicTransport": {
+    "overview": "Lisbon has an excellent integrated public transport network operated by Carris (buses/trams) and Metro de Lisboa. All modes use the same ticketing system, making it easy to transfer between different transport types.",
+    "modes": [
+      {
+        "id": "metro",
+        "name": "Metro",
+        "description": "4 lines covering major areas. Fast and air-conditioned.",
+        "icon": "metro",
+        "color": "blue"
+      },
+      {
+        "id": "trams",
+        "name": "Trams", 
+        "description": "Historic trams, especially Line 28. Great for sightseeing.",
+        "icon": "tram",
+        "color": "yellow"
+      },
+      {
+        "id": "buses",
+        "name": "Buses",
+        "description": "Extensive network reaching all areas. Some night services.",
+        "icon": "bus", 
+        "color": "green"
+      }
+    ]
+  },
+  "vivaViagem": {
+    "title": "Viva Viagem Card",
+    "description": "The rechargeable smart card for all public transport in Lisbon. One card works on metro, buses, trams, and ferries using \"zapping\" credit (pay-as-you-go).",
+    "pricing": {
+      "cardCost": 0.50,
+      "recommendedCredit": {
+        "min": 15,
+        "max": 20
+      },
+      "totalCost": {
+        "min": 15.50,
+        "max": 20.50
+      }
+    },
+    "fares": {
+      "metro": 1.50,
+      "bus": 1.50,
+      "tram": 3.00,
+      "ferry": 1.30
+    },
+    "estimatedTrips": "20-30 trips covers most week-long stays",
+    "link": "https://www.metrolisboa.pt/en/buy/viva-viagem-card/"
+  },
+  "airportTransport": {
+    "arrivalInfo": {
+      "terminal": "Terminal 1",
+      "arrivalTime": "21:55",
+      "passengers": 4,
+      "luggage": true
+    },
+    "options": [
+      {
+        "id": "metro",
+        "name": "Metro + Walking/Bus",
+        "icon": "🚇",
+        "cost": {
+          "amount": 6.40,
+          "currency": "EUR",
+          "note": "total for 4 people"
+        },
+        "journeyTime": "45-60 minutes",
+        "pros": [
+          "Very affordable",
+          "Frequent service", 
+          "Runs until 1:00 AM"
+        ],
+        "cons": [
+          "45-60 minutes journey",
+          "Challenging with luggage",
+          "May require transfers"
+        ],
+        "route": "Red Line from Aeroporto → transfer at Alameda to Green/Blue Line, depending on your destination"
+      },
+      {
+        "id": "taxi",
+        "name": "Taxi / Uber",
+        "icon": "🚕",
+        "recommended": true,
+        "cost": {
+          "amount": "15-25",
+          "currency": "EUR",
+          "note": "total for group"
+        },
+        "journeyTime": "15-30 minutes",
+        "pros": [
+          "Door-to-door service",
+          "15-30 minutes journey",
+          "No hassle with luggage",
+          "Available 24/7"
+        ],
+        "cons": [
+          "Most expensive option",
+          "Traffic delays possible",
+          "Airport taxi queue waits"
+        ],
+        "tip": "Best choice for late arrival: Reliable, comfortable, and gets you to your accommodation quickly after a long flight. With AeroBus suspended, this is the most practical option for groups with luggage."
+      }
+    ]
+  },
+  "sintraTrip": {
+    "title": "Day Trip to Sintra by Train",
+    "trainDetails": {
+      "departureStations": [
+        {
+          "name": "Estação do Rossio",
+          "note": "city center, most convenient"
+        },
+        {
+          "name": "Estação do Oriente", 
+          "note": "if staying near Parque das Nações"
+        }
+      ],
+      "schedule": {
+        "firstTrain": "06:06",
+        "lastTrain": "23:26",
+        "frequency": "Every 30 minutes",
+        "journeyTime": "40 minutes"
+      }
+    },
+    "pricing": {
+      "oneWay": 2.30,
+      "return": 4.60,
+      "currency": "EUR",
+      "note": "per person"
+    },
+    "ticketing": {
+      "options": [
+        "Use your Viva Viagem card",
+        "Buy at ticket machines",
+        "No seat reservations needed",
+        "Valid for 2 hours from validation"
+      ]
+    },
+    "tips": [
+      "Journey time: 40 minutes",
+      "Avoid peak hours (8-9 AM, 6-7 PM)",
+      "Last train back: 23:26 from Sintra",
+      "Buy local bus tickets in Sintra (€5 tourist bus)"
+    ]
+  },
+  "lastUpdated": "2025-01-27T00:00:00Z"
+} 

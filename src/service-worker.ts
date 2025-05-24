@@ -13,18 +13,39 @@ const CACHE = `cache-${version}`;
 const DATA_FILES = [
 	'/data/flights.json',
 	'/data/stays.json',
-	'/data/explore.json'
+	'/data/explore.json',
+	'/data/moves.json'
 ];
 
 // Static assets to cache (only those not already in files)
 const STATIC_ASSETS = [
 	'/',
+	'/moves',
+	'/explore',
+	'/flights', 
+	'/stays',
 	'/images/landing-bg.png',
 	'/images/leaflet/marker-icon.png',
 	'/images/leaflet/marker-icon-2x.png',
 	'/images/leaflet/marker-shadow.png',
 	'/images/icons/icon-192x192.png',
 	'/images/icons/icon-512x512.png'
+];
+
+// Runtime caching for SvelteKit dynamic imports
+const RUNTIME_CACHE_PATTERNS = [
+	/\/_app\/immutable\/chunks\//,
+	/\/_app\/immutable\/nodes\//,
+	/\/_app\/immutable\/entry\//,
+	/\/\.svelte-kit\/generated\/client\/nodes\//
+];
+
+// Dynamic content patterns to cache at runtime
+const DYNAMIC_CACHE_PATTERNS = [
+	/\/descriptions\/.*\.txt$/,     // All description text files
+	/\/images\/explore\/.*\.(jpg|jpeg|png|webp)$/,  // All explore images
+	/\/audio\/.*\.wav$/,            // Audio files (when online)
+	/\/data\/.*\.json$/             // Data files
 ];
 
 // Combine all assets to cache (remove duplicates)
@@ -34,7 +55,17 @@ const ASSETS = [...new Set([...build, ...files, ...STATIC_ASSETS, ...DATA_FILES]
 const DEV_PATHS = [
 	'/node_modules/',
 	'/.vite/',
-	'/@fs/'
+	'/@fs/',
+	'/@vite/',
+	'/__vite_ping'
+];
+
+// Development mode patterns that need special handling
+const DEV_PATTERNS = [
+	/@fs\//,
+	/@vite\//,
+	/\.svelte-kit\/generated\/client\//,
+	/node_modules\/@sveltejs\/kit\/src\/runtime\/client\//
 ];
 
 // —— install ——
@@ -77,11 +108,6 @@ sw.addEventListener('fetch', (event) => {
 		return;
 	}
 
-	// Skip audio files - they will be handled by the app's offline logic
-	if (request.url.endsWith('.wav')) {
-		return;
-	}
-
 	// Skip Chrome DevTools requests
 	if (request.url.includes('.well-known/appspecific/com.chrome.devtools')) {
 		return;
@@ -104,16 +130,76 @@ sw.addEventListener('fetch', (event) => {
 				// Clone the response
 				const responseToCache = response.clone();
 				
-				// Cache the response for future use
-				const cache = await caches.open(CACHE);
-				await cache.put(request, responseToCache);
+				// Always cache SvelteKit runtime files and our app routes
+				const shouldCache = RUNTIME_CACHE_PATTERNS.some(pattern => pattern.test(request.url)) ||
+					DYNAMIC_CACHE_PATTERNS.some(pattern => pattern.test(request.url)) ||
+					['/moves', '/explore', '/flights', '/stays'].some(route => request.url.endsWith(route)) ||
+					/\/explore\/[^\/]+$/.test(request.url); // Cache explore slug routes
+
+				if (shouldCache) {
+					const cache = await caches.open(CACHE);
+					await cache.put(request, responseToCache);
+				}
 				
 				return response;
 			} catch (error) {
+				// Special handling for development mode paths when offline
+				if (DEV_PATTERNS.some(pattern => pattern.test(request.url))) {
+					console.warn(`Development resource unavailable offline: ${request.url}`);
+					// For navigation requests, serve the app shell
+					if (request.mode === 'navigate' || request.destination === 'document') {
+						const indexResponse = await caches.match('/');
+						if (indexResponse) {
+							return indexResponse;
+						}
+					}
+					// For script/module requests, return a minimal response to prevent errors
+					return new Response('// Development resource unavailable offline', {
+						status: 200,
+						headers: { 'Content-Type': 'application/javascript' }
+					});
+				}
+
 				// If offline, try to serve from cache again (in case of cache miss)
 				const cachedResponse = await caches.match(request);
 				if (cachedResponse) {
 					return cachedResponse;
+				}
+
+				// For navigation requests when offline, serve the app shell
+				if (request.mode === 'navigate' || request.destination === 'document') {
+					const indexResponse = await caches.match('/');
+					if (indexResponse) {
+						return indexResponse;
+					}
+				}
+
+				// For dynamic content (descriptions, images, audio), try cache
+				if (DYNAMIC_CACHE_PATTERNS.some(pattern => pattern.test(request.url))) {
+					const cachedContent = await caches.match(request);
+					if (cachedContent) {
+						return cachedContent;
+					}
+					// For missing content, return appropriate error responses
+					if (request.url.includes('/descriptions/')) {
+						return new Response('Description not available offline', { status: 404 });
+					}
+					if (request.url.includes('/audio/')) {
+						return new Response('Audio not available offline', { status: 404 });
+					}
+					if (request.url.includes('/images/')) {
+						return new Response('Image not available offline', { status: 404 });
+					}
+				}
+
+				// For page routes, serve the app shell and let client-side routing handle it
+				const pageRoutes = ['/moves', '/explore', '/flights', '/stays'];
+				if (pageRoutes.some(route => request.url.endsWith(route)) || 
+					/\/explore\/[^\/]+$/.test(request.url)) { // Include explore slug routes
+					const indexResponse = await caches.match('/');
+					if (indexResponse) {
+						return indexResponse;
+					}
 				}
 
 				// If it's a navigation request, serve the main app
