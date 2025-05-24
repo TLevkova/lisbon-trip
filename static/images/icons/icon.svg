@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background circle -->
+    <circle cx="256" cy="256" r="256" fill="#b74d95"/>
+    
+    <!-- Map pin -->
+    <path d="M256 128C211.8 128 176 163.8 176 208C176 252.2 256 384 256 384C256 384 336 252.2 336 208C336 163.8 300.2 128 256 128ZM256 240C229.5 240 208 218.5 208 192C208 165.5 229.5 144 256 144C282.5 144 304 165.5 304 192C304 218.5 282.5 240 256 240Z" fill="white"/>
+</svg> 

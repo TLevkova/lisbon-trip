@@ -73,12 +73,15 @@
 		}
 		// Handle horizontal swipe for navigation
 		else if (activeLink && Math.abs(currentX) > 50) {
-			const direction = currentX > 0 ? 'next' : 'prev';
-			const currentIndex = links.findIndex(link => link.href === activeLink?.getAttribute('href'));
-			const targetIndex = direction === 'next' ? currentIndex + 1 : currentIndex - 1;
-			
-			if (targetIndex >= 0 && targetIndex < links.length) {
-				navigateTo(links[targetIndex].href);
+			const href = activeLink.getAttribute('href');
+			if (href) {
+				const currentIndex = links.findIndex(link => link.href === href);
+				const direction = currentX > 0 ? 'next' : 'prev';
+				const targetIndex = direction === 'next' ? currentIndex + 1 : currentIndex - 1;
+				
+				if (targetIndex >= 0 && targetIndex < links.length) {
+					navigateTo(links[targetIndex].href);
+				}
 			}
 		}
 	}
@@ -98,9 +101,9 @@
   class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 rounded-t-2xl shadow-xl transition-transform duration-300 pointer-events-auto z-50"
   class:translate-y-0={isOpen}
   class:translate-y-full={!isOpen}
-  on:touchstart={handleTouchStart}
-  on:touchmove={handleTouchMove}
-  on:touchend={handleTouchEnd}
+  on:touchstart|passive={handleTouchStart}
+  on:touchmove|passive={handleTouchMove}
+  on:touchend|passive={handleTouchEnd}
 >
 	<div class="mx-auto my-4 h-1 w-12 rounded-full bg-gray-300 dark:bg-gray-600"></div>
 	<slot />

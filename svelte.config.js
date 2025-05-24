@@ -10,6 +10,17 @@ const config = {
 			register: process.env.NODE_ENV === 'production'
 		}
 	},
+	vite: {
+		build: {
+			rollupOptions: {
+				output: {
+					manualChunks: {
+						'svelte-internal': ['svelte/internal']
+					}
+				}
+			}
+		}
+	},
 	extensions: ['.svelte', '.svx']
 };
 
