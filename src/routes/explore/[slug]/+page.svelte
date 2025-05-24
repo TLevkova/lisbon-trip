@@ -192,14 +192,7 @@
 	<div class="container mx-auto max-w-3xl px-4 py-8">
 		<!-- Price and Rating -->
 		<div class="mb-6 flex items-center justify-between">
-			{#if data.item.price && data.item.price.toLowerCase() !== 'n/a'}
-				<div class="flex items-center space-x-4">
-					<span class="text-2xl font-bold text-gray-900 dark:text-white">
-						{data.item.price}
-					</span>
-					<span class="text-sm text-gray-500 dark:text-gray-400">per person</span>
-				</div>
-			{/if}
+					{#if data.item.price && data.item.price.toLowerCase() !== 'n/a'}				<div class="flex items-center space-x-4">					<span class="text-2xl font-bold text-gray-900 dark:text-white">						{data.item.price}					</span>					{#if data.item.price.toLowerCase() !== 'free'}						<span class="text-sm text-gray-500 dark:text-gray-400">per person</span>					{/if}				</div>			{/if}
 			<div class="flex items-center space-x-1">
 				{#each Array(5) as _, i}
 					{#if i < Math.floor(data.item.rating)}

@@ -239,108 +239,108 @@ export const exploreLocations: ExploreLocation[] = [
     slug: 'palacio-de-monserrate',
     title: 'Palácio de Monserrate',
     description: 'An exotic palatial villa that exemplifies Romantic architecture, surrounded by a beautiful park with botanical gardens.',
-    image: '/images/placeholder.jpg',
-    rating: 4.6,
-    category: 'Palace',
+    image: '/images/explore/palacio-de-monserrate.jpg',
+    rating: 4.7,
+    category: 'Ruins',
     coordinates: {
-      lat: 38.7926,
-      lng: -9.4198
+      lat: 38.7919,
+      lng: -9.4190
     },
     address: 'Estrada de Monserrate, 2710-405 Sintra, Portugal',
-    openingHours: '09:30 - 18:00',
-    price: '€8',
-    heroImg: '/images/placeholder.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.7926,-9.4198'
+    openingHours: 'Always open',
+    price: 'Free',
+    heroImg: '/images/explore/palacio-de-monserrate.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7919,-9.4190'
   },
   {
     id: '14',
     slug: 'national-palace-sintra',
     title: 'National Palace of Sintra',
     description: 'The best-preserved medieval royal palace in Portugal, known for its distinctive twin chimneys and beautiful interior decorations.',
-    image: '/images/placeholder.jpg',
+    image: '/images/explore/national-palace-sintra.jpg',
     rating: 4.5,
     category: 'Palace',
     coordinates: {
-      lat: 38.7975,
-      lng: -9.3907
+      lat: 38.7976,
+      lng: -9.3906
     },
     address: 'Largo Rainha Dona Amélia, 2710-616 Sintra, Portugal',
     openingHours: '09:30 - 18:30',
-    price: '€10',
-    heroImg: '/images/placeholder.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.7975,-9.3907'
+    price: '€13',
+    heroImg: '/images/explore/national-palace-sintra.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7976,-9.3906'
   },
   {
     id: '15',
     slug: 'parque-da-liberdade',
     title: 'Parque da Liberdade',
     description: 'A peaceful urban park in Sintra offering walking trails, playgrounds, and beautiful landscaping.',
-    image: '/images/placeholder.jpg',
-    rating: 4.3,
+    image: '/images/explore/parque-da-liberdade.jpg',
+    rating: 4.6,
     category: 'Park',
     coordinates: {
-      lat: 38.7989,
-      lng: -9.3873
+      lat: 38.7963,
+      lng: -9.3864
     },
     address: 'Av. Dr. Miguel Bombarda, 2710 Sintra, Portugal',
     openingHours: 'Always open',
     price: 'Free',
-    heroImg: '/images/placeholder.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.7989,-9.3873'
+    heroImg: '/images/explore/parque-da-liberdade.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7963,-9.3864'
   },
   {
     id: '16',
     slug: 'rua-augusta',
-    title: 'Rua Augusta',
-    description: 'The main pedestrian street in Lisbon\'s downtown, featuring historic buildings, shops, restaurants, and the iconic Rua Augusta Arch.',
-    image: '/images/placeholder.jpg',
-    rating: 4.5,
-    category: 'Street',
+    title: 'Arco da Rua Augusta',
+    description: 'Triumphal arch completed in 1873 after more than a century of intermittent construction..',
+    image: '/images/explore/rua-augusta.jpg',
+    rating: 4.7,
+    category: 'Monument',
     coordinates: {
-      lat: 38.7100,
-      lng: -9.1366
+      lat: 38.7084,
+      lng: -9.1368
     },
     address: 'Rua Augusta, Lisbon, Portugal',
-    openingHours: 'Always open',
+    openingHours: '10:00 - 19:00',
     price: 'Free',
-    heroImg: '/images/placeholder.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.7100,-9.1366'
+    heroImg: '/images/explore/rua-augusta.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7084,-9.1368'
   },
   {
     id: '17',
     slug: 'rossio',
-    title: 'Rossio',
+    title: 'Rossio Square',
     description: 'The popular name for Pedro IV Square, one of Lisbon\'s main squares since the Middle Ages, known for its wave-pattern cobblestones and historic cafes.',
-    image: '/images/placeholder.jpg',
-    rating: 4.4,
+    image: '/images/explore/rossio.jpg',
+    rating: 4.6,
     category: 'Square',
     coordinates: {
-      lat: 38.7147,
-      lng: -9.1394
+      lat: 38.7133,
+      lng: -9.1392
     },
     address: 'Praça Dom Pedro IV, Lisbon, Portugal',
     openingHours: 'Always open',
     price: 'Free',
-    heroImg: '/images/placeholder.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.7147,-9.1394'
+    heroImg: '/images/explore/rossio.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7133,-9.1392'
   },
   {
     id: '18',
     slug: 'carmo-convent',
     title: 'Carmo Convent',
     description: 'Gothic ruins of a medieval convent, serving as a powerful reminder of the 1755 earthquake and housing an archaeological museum.',
-    image: '/images/placeholder.jpg',
-    rating: 4.4,
-    category: 'Historical Site',
+    image: '/images/explore/carmo-convent.jpg',
+    rating: 4.5,
+    category: 'Archeological Museum',
     coordinates: {
-      lat: 38.7121,
-      lng: -9.1404
+      lat: 38.7120,
+      lng: -9.1406
     },
     address: 'Largo do Carmo, 1200-092 Lisboa, Portugal',
-    openingHours: '10:00 - 18:00',
-    price: '€5',
-    heroImg: '/images/placeholder.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.7121,-9.1404'
+    openingHours: '10:00 - 19:00, Closed on Sundays',
+    price: '€7',
+    heroImg: '/images/explore/carmo-convent.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7120,-9.1406'
   },
   {
     id: '19',
