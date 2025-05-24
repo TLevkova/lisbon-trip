@@ -76,21 +76,4 @@ export interface ExploreItem {
   };
 }
 
-export interface EatSpot {
-  id: string;
-  name: string;
-  cuisine: string;
-  priceRange: string;
-  rating: number;
-  reviewCount: number;
-  image: string;
-  location: {
-    lat: number;
-    lng: number;
-  };
-  address: string;
-  openHours: string;
-  description: string;
-  menu?: string;
-  reservations?: string;
-} 
+ 

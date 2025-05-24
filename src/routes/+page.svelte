@@ -1,14 +1,13 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import MapView from '$lib/components/MapView.svelte';
+
 	import { onMount } from 'svelte';
 	import localforage from 'localforage';
 
 	const dataFiles = [
 		'flights.json',
 		'stays.json',
-		'explore.json',
-		'eat.json'
+		'explore.json'
 	];
 
 	const dataStore = localforage.createInstance({
@@ -192,10 +191,10 @@
 					</svg>
 				</div>
 				<h3 class="mb-2 text-xl font-semibold text-gray-900">Local Experiences</h3>
-				<p class="text-gray-600">Discover the best places to eat, drink, and explore.</p>
+				<p class="text-gray-600">Discover the best places to stay and explore.</p>
 			</div>
 		</div>
 	</div>
 </section>
 
-<!-- (Other page content, e.g. MapView, goes below) -->
+

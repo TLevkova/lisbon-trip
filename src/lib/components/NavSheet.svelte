@@ -20,7 +20,6 @@
 		{ href: '/flights', text: 'Flights' },
 		{ href: '/stays', text: 'Stays' },
 		{ href: '/explore', text: 'Explore' },
-		{ href: '/eat', text: 'Eat & Drink' },
 		{ href: '/moves', text: 'Moves' },
 		{ href: '/local-flavours', text: 'Local Flavours' }
 	];

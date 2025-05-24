@@ -13,8 +13,7 @@ const CACHE = `cache-${version}`;
 const DATA_FILES = [
 	'/data/flights.json',
 	'/data/stays.json',
-	'/data/explore.json',
-	'/data/eat.json'
+	'/data/explore.json'
 ];
 
 // Static assets to cache (only those not already in files)

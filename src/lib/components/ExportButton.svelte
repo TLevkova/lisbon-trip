@@ -3,12 +3,11 @@
   import pkg from 'file-saver';
   const { saveAs } = pkg;
 
-  const files = [
-    'flights.json',
-    'stays.json',
-    'explore.json',
-    'eat.json'
-  ];
+    const files = [
+      'flights.json',
+      'stays.json',
+      'explore.json'
+    ];
 
   async function handleExport() {
     const zip = new JSZip();
