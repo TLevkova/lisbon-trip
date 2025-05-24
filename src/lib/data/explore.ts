@@ -347,35 +347,35 @@ export const exploreLocations: ExploreLocation[] = [
     slug: 'miradouro-sao-pedro',
     title: 'Miradouro de São Pedro de Alcântara',
     description: 'A beautiful viewpoint offering panoramic views of central Lisbon, São Jorge Castle, and the Tagus River.',
-    image: '/images/placeholder.jpg',
+    image: '/images/explore/miradouro-sao-pedro.jpg',
     rating: 4.6,
     category: 'Viewpoint',
     coordinates: {
-      lat: 38.7156,
-      lng: -9.1442
+      lat: 38.7153,
+      lng: -9.1441
     },
     address: 'R. de São Pedro de Alcântara, 1250-237 Lisboa, Portugal',
     openingHours: 'Always open',
     price: 'Free',
-    heroImg: '/images/placeholder.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.7156,-9.1442'
+    heroImg: '/images/explore/miradouro-sao-pedro.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7153,-9.1441'
   },
   {
     id: '20',
     slug: 'lisbon-cathedral',
-    title: 'Lisbon Cathedral (Sé)',
+    title: 'Lisbon Cathedral (Sé se Lisboa)',
     description: 'The oldest church in Lisbon, built in 1147, featuring a mixture of architectural styles from Romanesque to Gothic and Baroque.',
-    image: '/images/placeholder.jpg',
-    rating: 4.3,
+    image: '/images/explore/lisbon-cathedral.jpg',
+    rating: 4.4,
     category: 'Religious Site',
     coordinates: {
-      lat: 38.7097,
-      lng: -9.1336
+      lat: 38.7098,
+      lng: -9.1329
     },
     address: 'Largo da Sé, 1100-585 Lisboa, Portugal',
-    openingHours: '09:00 - 19:00',
-    price: 'Free',
-    heroImg: '/images/placeholder.jpg',
+    openingHours: '10:00 - 18:00',
+    price: '€5',
+    heroImg: '/images/explore/lisbon-cathedral.jpg',
     gmapsUrl: 'https://www.google.com/maps?q=38.7097,-9.1336'
   },
   {
@@ -383,8 +383,8 @@ export const exploreLocations: ExploreLocation[] = [
     slug: 'museu-nacional-do-azulejo',
     title: 'Museu Nacional do Azulejo',
     description: 'A unique museum dedicated to the art of Portuguese tiles, housed in a former monastery with a stunning collection spanning five centuries.',
-    image: '/images/placeholder.jpg',
-    rating: 4.5,
+    image: '/images/explore/museu-nacional-do-azulejo.jpg',
+    rating: 4.6,
     category: 'Museum',
     coordinates: {
       lat: 38.7250,
@@ -392,8 +392,8 @@ export const exploreLocations: ExploreLocation[] = [
     },
     address: 'R. Me. Deus 4, 1900-312 Lisboa, Portugal',
     openingHours: '10:00 - 18:00',
-    price: '€5',
-    heroImg: '/images/placeholder.jpg',
+    price: '€10',
+    heroImg: '/images/explore/museu-nacional-do-azulejo.jpg',
     gmapsUrl: 'https://www.google.com/maps?q=38.7250,-9.1135'
   },
   {
@@ -401,17 +401,17 @@ export const exploreLocations: ExploreLocation[] = [
     slug: 'padrao-dos-descobrimentos',
     title: 'Padrão dos Descobrimentos',
     description: 'A monument celebrating Portuguese explorers, featuring sculptures of historical figures and offering panoramic views from its viewing platform.',
-    image: '/images/placeholder.jpg',
-    rating: 4.4,
+    image: '/images/explore/padrao-dos-descobrimentos.jpg',
+    rating: 4.6,
     category: 'Monument',
     coordinates: {
       lat: 38.6936,
       lng: -9.2057
     },
     address: 'Av. Brasília, 1400-038 Lisboa, Portugal',
-    openingHours: '10:00 - 18:00',
-    price: '€6',
-    heroImg: '/images/placeholder.jpg',
+    openingHours: '10:00 - 19:00',
+    price: '€10',
+    heroImg: '/images/explore/padrao-dos-descobrimentos.jpg',
     gmapsUrl: 'https://www.google.com/maps?q=38.6936,-9.2057'
   },
   {
@@ -419,17 +419,17 @@ export const exploreLocations: ExploreLocation[] = [
     slug: 'parque-das-nacoes',
     title: 'Parque das Nações',
     description: 'A modern district developed for Expo \'98, featuring contemporary architecture, gardens, the Oceanário, and various leisure facilities.',
-    image: '/images/placeholder.jpg',
+    image: '/images/explore/parque-das-nacoes.jpg',
     rating: 4.5,
     category: 'District',
     coordinates: {
       lat: 38.7633,
       lng: -9.0951
     },
-    address: 'Parque das Nações, 1990 Lisboa, Portugal',
-    openingHours: 'Always open',
-    price: 'Free',
-    heroImg: '/images/placeholder.jpg',
+    address: 'Parque das Nações & Telecabine, 1990 Lisboa, Portugal',
+    openingHours: 'Always open, 11:00 - 19:00 for the Telecabine',
+    price: '€7.50/€9.50 Telecabine',
+    heroImg: '/images/explore/parque-das-nacoes.jpg',
     gmapsUrl: 'https://www.google.com/maps?q=38.7633,-9.0951'
   },
   {
@@ -437,35 +437,35 @@ export const exploreLocations: ExploreLocation[] = [
     slug: 'panteao-nacional',
     title: 'Panteão Nacional (Church of Santa Engrácia)',
     description: 'A stunning 17th-century monument and national pantheon, housing the tombs of important Portuguese figures. Its impressive dome offers panoramic views of Lisbon and the Tagus River.',
-    image: '/images/placeholder.jpg',
-    rating: 4.6,
+    image: '/images/explore/panteao-nacional.jpg',
+    rating: 4.5,
     category: 'Monument',
     coordinates: {
-      lat: 38.7155,
-      lng: -9.1242
+      lat: 38.7149,
+      lng: -9.1246
     },
     address: 'Campo de Santa Clara, 1100-471 Lisboa, Portugal',
-    openingHours: '10:00 - 17:00',
-    price: '€4',
-    heroImg: '/images/placeholder.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.7155,-9.1242'
+    openingHours: '10:00 - 18:00, Closed on Mondays',
+    price: '€10',
+    heroImg: '/images/explore/panteao-nacional.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7149,-9.1246'
   },
   {
     id: '25',
     slug: 'sao-vicente-de-fora',
     title: 'Igreja de São Vicente de Fora',
     description: 'A 17th-century monastery and church, one of the most important religious monuments in Lisbon, featuring beautiful azulejos and the tomb of the Braganza dynasty.',
-    image: '/images/placeholder.jpg',
-    rating: 4.5,
+    image: '/images/explore/sao-vicente-de-fora.jpg',
+    rating: 4.6,
     category: 'Religious Site',
     coordinates: {
       lat: 38.7147,
       lng: -9.1283
     },
     address: 'Largo de São Vicente, 1100-572 Lisboa, Portugal',
-    openingHours: '10:00 - 18:00',
-    price: '€5',
-    heroImg: '/images/placeholder.jpg',
+    openingHours: '10:00 - 17:45',
+    price: '€8',
+    heroImg: '/images/explore/sao-vicente-de-fora.jpg',
     gmapsUrl: 'https://www.google.com/maps?q=38.7147,-9.1283'
   },
   {
@@ -473,36 +473,36 @@ export const exploreLocations: ExploreLocation[] = [
     slug: 'miradouro-portas-do-sol',
     title: 'Miradouro das Portas do Sol',
     description: 'One of Lisbon\'s most famous viewpoints, offering spectacular views over Alfama\'s terracotta rooftops and the Tagus River.',
-    image: '/images/placeholder.jpg',
+    image: '/images/explore/miradouro-portas-do-sol.jpg',
     rating: 4.7,
     category: 'Viewpoint',
     coordinates: {
-      lat: 38.7128,
-      lng: -9.1307
+      lat: 38.7119,
+      lng: -9.1299
     },
     address: 'Largo Portas do Sol, 1100-411 Lisboa, Portugal',
     openingHours: 'Always open',
-    price: 'Free',
-    heroImg: '/images/placeholder.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.7128,-9.1307'
+    price: 'n/a',
+    heroImg: '/images/explore/miradouro-portas-do-sol.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7119,-9.1299'
   },
   {
     id: '27',
     slug: 'miradouro-santa-luzia',
     title: 'Miradouro de Santa Luzia',
     description: 'A romantic terrace offering stunning views of Alfama and the Tagus River, decorated with beautiful azulejos panels depicting historical scenes.',
-    image: '/images/placeholder.jpg',
-    rating: 4.6,
+    image: '/images/explore/miradouro-santa-luzia.jpg',
+    rating: 4.7,
     category: 'Viewpoint',
     coordinates: {
-      lat: 38.7124,
-      lng: -9.1314
+      lat: 38.7126,
+      lng: -9.1302
     },
     address: 'Largo de Santa Luzia, 1100-487 Lisboa, Portugal',
     openingHours: 'Always open',
-    price: 'Free',
-    heroImg: '/images/placeholder.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.7124,-9.1314'
+    price: 'n/a',
+    heroImg: '/images/explore/miradouro-santa-luzia.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7126,-9.1302'
   },
   {
     id: '28',

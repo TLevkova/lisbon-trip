@@ -125,10 +125,7 @@
 		return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
 	}
 
-	function formatOpeningHours() {
-		if (!data.item.openingHours) return [];
-		return [{ day: 'Today', hours: data.item.openingHours }];
-	}
+	
 
 	function formatVisitedDate(date: string) {
 		return new Date(date).toLocaleDateString(undefined, {
@@ -300,13 +297,10 @@
 				<h2 class="mb-6 text-xl font-bold text-gray-900 dark:text-white pl-3 border-l-4 border-[#b74d95] hover:pl-4 transition-all duration-300">
 					Opening Hours
 				</h2>
-				<div class="space-y-2 pl-3">
-					{#each formatOpeningHours() as { day, hours }}
-						<div class="flex items-center justify-between py-1">
-							<span class="text-gray-600 dark:text-gray-400 font-medium">{day}</span>
-							<span class="text-gray-900 dark:text-white">{hours}</span>
-						</div>
-					{/each}
+				<div class="pl-3">
+					<p class="text-gray-900 dark:text-white leading-relaxed text-base sm:text-lg">
+						{data.item.openingHours}
+					</p>
 				</div>
 			</div>
 		{/if}
