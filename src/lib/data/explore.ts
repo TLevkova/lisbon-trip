@@ -509,61 +509,43 @@ export const exploreLocations: ExploreLocation[] = [
     slug: 'monumento-dos-restauradores',
     title: 'Monumento dos Restauradores',
     description: 'An obelisk commemorating Portugal\'s independence from Spain in 1640, located in the beautiful Restauradores Square.',
-    image: '/images/placeholder.jpg',
-    rating: 4.3,
+    image: '/images/explore/monumento-dos-restauradores.jpg',
+    rating: 4.5,
     category: 'Monument',
     coordinates: {
-      lat: 38.7171,
-      lng: -9.1422
+      lat: 38.7157,
+      lng: -9.1416
     },
-    address: 'Praça dos Restauradores, 1250-096 Lisboa, Portugal',
-    openingHours: 'Always open',
-    price: 'Free',
-    heroImg: '/images/placeholder.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.7171,-9.1422'
+    address: 'Praça dos Restauradores, 1250-188 Lisboa, Portugal',
+    openingHours: 'n/a',
+    price: 'n/a',
+    heroImg: '/images/explore/monumento-dos-restauradores.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7157,-9.1416'
   },
   {
     id: '29',
     slug: 'statue-of-john-i',
     title: 'Statue Of John I',
     description: 'A historic equestrian statue honoring King John I of Portugal, located in Praça da Figueira, celebrating one of Portugal\'s most important monarchs.',
-    image: '/images/placeholder.jpg',
-    rating: 4.2,
+    image: '/images/explore/statue-of-john-i.jpg',
+    rating: 4.4,
     category: 'Monument',
     coordinates: {
-      lat: 38.7142,
-      lng: -9.1378
+      lat: 38.7136,
+      lng: -9.1379
     },
     address: 'Praça da Figueira, Lisboa, Portugal',
-    openingHours: 'Always open',
-    price: 'Free',
-    heroImg: '/images/placeholder.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.7142,-9.1378'
+    openingHours: 'n/a',
+    price: 'n/a',
+    heroImg: '/images/explore/statue-of-john-i.jpg',
+    gmapsUrl: 'https://www.google.com/maps?q=38.7136,-9.1379'
   },
   {
     id: '30',
-    slug: 'carmo-archaeological-museum',
-    title: 'Carmo Archaeological Museum',
-    description: 'Located in the ruins of the Gothic Carmo Church, this museum houses a fascinating collection of archaeological finds, tomb sculptures, and architectural fragments.',
-    image: '/images/placeholder.jpg',
-    rating: 4.4,
-    category: 'Museum',
-    coordinates: {
-      lat: 38.7121,
-      lng: -9.1404
-    },
-    address: 'Largo do Carmo, 1200-092 Lisboa, Portugal',
-    openingHours: '10:00 - 18:00',
-    price: '€5',
-    heroImg: '/images/placeholder.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.7121,-9.1404'
-  },
-  {
-    id: '31',
     slug: 'bairro-alto',
     title: 'Bairro Alto',
     description: 'A bohemian neighborhood known for its vibrant nightlife, traditional restaurants, and alternative shops. By day, it\'s a cultural hub; by night, it transforms into Lisbon\'s party central.',
-    image: '/images/placeholder.jpg',
+    image: '/images/explore/bairro-alto.jpg',
     rating: 4.5,
     category: 'District',
     coordinates: {
@@ -571,45 +553,27 @@ export const exploreLocations: ExploreLocation[] = [
       lng: -9.1462
     },
     address: 'Bairro Alto, Lisboa, Portugal',
-    openingHours: 'Always open',
-    price: 'Free',
-    heroImg: '/images/placeholder.jpg',
+    openingHours: 'n/a',
+    price: 'n/a',
+    heroImg: '/images/explore/bairro-alto.jpg',
     gmapsUrl: 'https://www.google.com/maps?q=38.7127,-9.1462'
   },
   {
-    id: '32',
+    id: '31',
     slug: 'parque-eduardo-vii',
     title: 'Parque Eduardo VII',
     description: 'Lisbon\'s largest central park, featuring geometrically designed gardens, a stunning view over the city and the Tagus River, and the impressive greenhouse Estufa Fria.',
-    image: '/images/placeholder.jpg',
-    rating: 4.5,
+    image: '/images/explore/parque-eduardo-vii.jpg',
+    rating: 4.6,
     category: 'Park',
     coordinates: {
       lat: 38.7283,
       lng: -9.1526
     },
     address: 'Parque Eduardo VII, 1070-051 Lisboa, Portugal',
-    openingHours: 'Always open',
-    price: 'Free',
-    heroImg: '/images/placeholder.jpg',
+    openingHours: 'n/a',
+    price: 'n/a',
+    heroImg: '/images/explore/parque-eduardo-vii.jpg',
     gmapsUrl: 'https://www.google.com/maps?q=38.7283,-9.1526'
-  },
-  {
-    id: '33',
-    slug: 'palace-fronteira',
-    title: 'Palace Fronteira',
-    description: 'A 17th-century palace featuring some of Portugal\'s finest azulejos, formal gardens, and beautiful fountains. Known for its stunning tilework and baroque architecture.',
-    image: '/images/placeholder.jpg',
-    rating: 4.7,
-    category: 'Palace',
-    coordinates: {
-      lat: 38.7583,
-      lng: -9.1833
-    },
-    address: 'Largo São Domingos de Benfica 1, 1500-554 Lisboa, Portugal',
-    openingHours: '10:30 - 17:00',
-    price: '€12',
-    heroImg: '/images/placeholder.jpg',
-    gmapsUrl: 'https://www.google.com/maps?q=38.7583,-9.1833'
   }
 ]; 
