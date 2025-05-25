@@ -4,6 +4,7 @@
 	import localforage from 'localforage';
 	import { page } from '$app/stores';
 	import { browser } from '$app/environment';
+	import { goto } from '$app/navigation';
 
 	export let data: { item: ExploreLocation };
 
@@ -18,6 +19,9 @@
 	let showOfflineModal = false;
 	let audio: HTMLAudioElement | null = null;
 	let isPlaying = false;
+
+	// Navigation context
+	let fromView: 'map' | 'list' = 'list';
 
 	interface VisitedData {
 		visited: boolean;
@@ -75,6 +79,15 @@
 		}
 	});
 
+	// Reactive statement to handle URL parameter changes
+	$: if (browser && $page.url.searchParams.has('from')) {
+		const fromParam = $page.url.searchParams.get('from');
+		if (fromParam === 'map' || fromParam === 'list') {
+			fromView = fromParam;
+			console.log('Navigation context set to:', fromView);
+		}
+	}
+
 	function showToast(message: string, type: 'success' | 'error') {
 		toast = { show: true, message, type };
 		setTimeout(() => (toast.show = false), 3000);
@@ -124,8 +137,6 @@
 		const { lat, lng } = data.item.coordinates;
 		return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
 	}
-
-	
 
 	function formatVisitedDate(date: string) {
 		return new Date(date).toLocaleDateString(undefined, {

@@ -75,7 +75,14 @@
 				if (popupElement) {
 					popupElement.style.cursor = 'pointer';
 					popupElement.addEventListener('click', () => {
-						goto(`/explore/${loc.slug}`);
+						// Before navigating, update the current URL to include the view parameter
+						// This ensures when user navigates back, they return to the map view
+						const currentUrl = new URL(window.location.href);
+						currentUrl.searchParams.set('view', 'map');
+						window.history.replaceState(window.history.state, '', currentUrl.toString());
+						
+						// Then navigate to the location page
+						goto(`/explore/${loc.slug}?from=map`);
 					});
 				}
 			});

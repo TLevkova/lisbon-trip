@@ -6,6 +6,7 @@
 	import MapView from '$lib/components/MapView.svelte';
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 	import localforage from 'localforage';
 
 	interface VisitedData {
@@ -46,6 +47,15 @@
 		}
 	});
 
+	// Reactive statement to handle URL parameter changes
+	$: if (browser && $page.url.searchParams.has('view')) {
+		const viewParam = $page.url.searchParams.get('view');
+		if (viewParam === 'map' || viewParam === 'list') {
+			console.log('Setting view to:', viewParam);
+			view = viewParam;
+		}
+	}
+
 	function formatDate(date: string) {
 		return new Date(date).toLocaleDateString(undefined, {
 			year: 'numeric',
@@ -55,7 +65,14 @@
 	}
 
 	function handleLocationClick(location: ExploreLocation) {
-		goto(`/explore/${location.slug}`);
+		// Before navigating, update the current URL to include the view parameter
+		// This ensures when user navigates back, they return to the correct view
+		const currentUrl = new URL(window.location.href);
+		currentUrl.searchParams.set('view', view);
+		window.history.replaceState(window.history.state, '', currentUrl.toString());
+		
+		// Then navigate to the location page
+		goto(`/explore/${location.slug}?from=${view}`);
 	}
 </script>
 
