@@ -1,3 +1,5 @@
+import { getLocationZone, type Zone } from './zones';
+
 export interface ExploreLocation {
   id: string;
   slug: string;
@@ -15,6 +17,7 @@ export interface ExploreLocation {
   price?: string;
   heroImg: string;
   gmapsUrl: string;
+  zone?: Zone | null;
 }
 
 export const exploreLocations: ExploreLocation[] = [
@@ -576,4 +579,9 @@ export const exploreLocations: ExploreLocation[] = [
     heroImg: '/images/explore/parque-eduardo-vii.jpg',
     gmapsUrl: 'https://www.google.com/maps?q=38.7283,-9.1526'
   }
-]; 
+];
+
+// Add zone information to each location
+exploreLocations.forEach(location => {
+  location.zone = getLocationZone(location.coordinates.lat, location.coordinates.lng);
+}); 

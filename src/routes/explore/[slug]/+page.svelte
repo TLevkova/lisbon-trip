@@ -182,7 +182,14 @@
 		<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
 		<div class="absolute bottom-0 left-0 right-0 p-6 text-white">
 			<h1 class="mb-2 text-4xl font-bold">{data.item.title}</h1>
-			<p class="text-lg opacity-90">{data.item.category}</p>
+			<div class="flex items-center space-x-3">
+				<p class="text-lg opacity-90">{data.item.category}</p>
+				{#if data.item.zone}
+					<span class="rounded-full px-3 py-1 text-sm font-medium" style="background-color: {data.item.zone.color}; color: white;">
+						{data.item.zone.name}
+					</span>
+				{/if}
+			</div>
 		</div>
 	</div>
 

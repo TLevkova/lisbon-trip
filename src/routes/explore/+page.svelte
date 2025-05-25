@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { exploreLocations } from '$lib/data/explore';
 	import type { ExploreLocation } from '$lib/data/explore';
+	import { zones } from '$lib/data/zones';
 	import { goto } from '$app/navigation';
 	import MapView from '$lib/components/MapView.svelte';
 	import { browser } from '$app/environment';
@@ -17,6 +18,11 @@
 	let view: 'list' | 'map' = 'list';
 	let visitedStatus: Record<string, VisitedData> = {};
 	let loading = true;
+
+	// Get unique zones from locations for the legend
+	$: uniqueZones = Array.from(new Set(locations.filter(loc => loc.zone).map(loc => loc.zone?.id)))
+		.map(zoneId => zones.find(zone => zone.id === zoneId))
+		.filter((zone): zone is NonNullable<typeof zone> => zone !== undefined);
 
 	const visitedStore = localforage.createInstance({
 		name: 'lisbon-trip',
@@ -89,8 +95,23 @@
 
 		{#if view === 'map' && browser}
 			<!-- Map view -->
-			<div class="mb-8 h-96 w-full overflow-hidden rounded-xl shadow-lg">
-				<MapView {locations} />
+			<div class="mb-8 w-full">
+				<div class="h-96 w-full overflow-hidden rounded-xl shadow-lg">
+					<MapView {locations} />
+				</div>
+				
+				<!-- Zone Legend -->
+				<div class="mt-4 rounded-lg bg-white p-4 shadow-lg">
+					<h4 class="mb-3 text-sm font-semibold text-gray-900">Zones</h4>
+					<div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+						{#each uniqueZones as zone}
+							<div class="flex items-center space-x-2 text-sm">
+								<div class="h-3 w-3 rounded-full flex-shrink-0" style="background-color: {zone.color}"></div>
+								<span class="text-gray-700">{zone.name}</span>
+							</div>
+						{/each}
+					</div>
+				</div>
 			</div>
 		{/if}
 
@@ -102,6 +123,7 @@
 						role="link"
 						tabindex="0"
 						class="cursor-pointer overflow-hidden rounded-xl bg-white shadow-lg transition dark:bg-gray-800"
+						style="border-left: 4px solid {loc.zone?.color || '#E5E7EB'}"
 						on:click={() => handleLocationClick(loc)}
 						on:keydown={(e: KeyboardEvent) => {
 							if (e.key === 'Enter' || e.key === ' ') handleLocationClick(loc);
@@ -118,6 +140,14 @@
 								</div>
 								{#if !loading}
 									<div class="flex flex-col items-end space-y-1">
+										{#if loc.zone}
+											<span 
+												class="rounded-full px-2 py-0.5 text-xs font-medium text-white"
+												style="background-color: {loc.zone.color}"
+											>
+												{loc.zone.name}
+											</span>
+										{/if}
 										{#if visitedStatus[loc.slug]?.visited}
 											<span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-200">
 												<svg class="mr-1 h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
