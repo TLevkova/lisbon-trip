@@ -173,19 +173,22 @@
 
 <div class="min-h-screen bg-gray-50 dark:bg-gray-900">
 	<!-- Hero Image (pulled up to cover layout padding) -->
-	<div class="relative -mt-24 h-[50vh] w-full">
+	<div class="relative -mt-24 h-[70vh] w-full">
 		<img
 			src={data.item.heroImg || data.item.image}
 			alt={data.item.title}
 			class="h-full w-full object-cover"
 		/>
-		<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+		<!-- Gradient overlay with blur effect at bottom -->
+		<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+		<div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/80 to-transparent backdrop-blur-sm"></div>
+		
 		<div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-			<h1 class="mb-2 text-4xl font-bold">{data.item.title}</h1>
+			<h1 class="mb-2 text-4xl font-bold drop-shadow-lg">{data.item.title}</h1>
 			<div class="flex items-center space-x-3">
-				<p class="text-lg opacity-90">{data.item.category}</p>
+				<p class="text-lg opacity-90 drop-shadow-md">{data.item.category}</p>
 				{#if data.item.zone}
-					<span class="rounded-full px-3 py-1 text-sm font-medium" style="background-color: {data.item.zone.color}; color: white;">
+					<span class="rounded-full px-3 py-1 text-sm font-medium drop-shadow-md" style="background-color: {data.item.zone.color}; color: white;">
 						{data.item.zone.name}
 					</span>
 				{/if}
@@ -193,7 +196,7 @@
 		</div>
 	</div>
 
-	<div class="container mx-auto max-w-3xl px-4 py-8">
+	<div class="container mx-auto max-w-3xl px-4 py-12">
 		<!-- Price and Rating -->
 		<div class="mb-6 flex items-center justify-between">
 					{#if data.item.price && data.item.price.toLowerCase() !== 'n/a'}				<div class="flex items-center space-x-4">					<span class="text-2xl font-bold text-gray-900 dark:text-white">						{data.item.price}					</span>					{#if data.item.price.toLowerCase() !== 'free'}						<span class="text-sm text-gray-500 dark:text-gray-400">per person</span>					{/if}				</div>			{/if}
