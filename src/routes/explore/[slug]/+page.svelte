@@ -190,9 +190,9 @@
 			alt={data.item.title}
 			class="h-full w-full object-cover"
 		/>
-		<!-- Gradient overlay with blur effect at bottom -->
+		<!-- Gradient overlay -->
 		<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-		<div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/80 to-transparent backdrop-blur-sm"></div>
+		<div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/80 to-transparent"></div>
 		
 		<div class="absolute bottom-0 left-0 right-0 p-6 text-white">
 			<h1 class="mb-2 text-4xl font-bold drop-shadow-lg">{data.item.title}</h1>
